@@ -5,6 +5,9 @@ import Link from 'next/link';
 import { Code2, Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { auth } from '@/lib/firebase'; // Import auth from your Firebase config
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'; // Import Firebase auth methods
+import { useToast } from '@/hooks/use-toast'; // Import the useToast hook
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -15,6 +18,7 @@ const navLinks = [
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const { toast } = useToast(); // Get the toast function
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +27,24 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLogin = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      toast({
+        title: "Logged In",
+        description: "You have successfully logged in.",
+      });
+    } catch (error) {
+      console.error("Login failed:", error);
+      toast({
+        title: "Login Failed",
+        description: "There was an error logging in. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-sm border-b' : 'bg-transparent'}`}>
@@ -37,6 +59,7 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
+          <Button onClick={handleLogin}>Login</Button>
         </nav>
         <div className="md:hidden">
           <Sheet>
@@ -57,6 +80,7 @@ export default function Header() {
                     {link.label}
                   </Link>
                 ))}
+                <Button onClick={handleLogin} className="w-full">Login</Button>
               </div>
             </SheetContent>
           </Sheet>
