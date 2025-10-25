@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { Code2, Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { auth } from '@/lib/firebase'; // Import auth from your Firebase config
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'; // Import Firebase auth methods
+import { getAuth } from 'firebase/auth'; // Import auth from your Firebase config
+import { signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User } from 'firebase/auth'; // Import Firebase auth methods
 import { useToast } from '@/hooks/use-toast'; // Import the useToast hook
+import { app } from '@/lib/firebase';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -18,15 +20,25 @@ const navLinks = [
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
   const { toast } = useToast(); // Get the toast function
+  const auth = getAuth(app);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      unsubscribe();
+    }
+  }, [auth]);
 
   const handleLogin = async () => {
     const provider = new GoogleAuthProvider();
@@ -46,6 +58,23 @@ export default function Header() {
     }
   };
 
+  const handleLogout = async () => {
+    try {
+      await auth.signOut();
+      toast({
+        title: "Logged Out",
+        description: "You have successfully logged out.",
+      });
+    } catch (error) {
+      console.error("Logout failed:", error);
+      toast({
+        title: "Logout Failed",
+        description: "There was an error logging out. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-sm border-b' : 'bg-transparent'}`}>
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
@@ -59,7 +88,17 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <Button onClick={handleLogin}>Login</Button>
+          {user ? (
+            <div className="flex items-center gap-4">
+              <Avatar>
+                <AvatarImage src={user.photoURL || undefined} alt={user.displayName || 'User'} />
+                <AvatarFallback>{user.displayName?.charAt(0)}</AvatarFallback>
+              </Avatar>
+              <Button onClick={handleLogout}>Logout</Button>
+            </div>
+          ) : (
+            <Button onClick={handleLogin}>Login</Button>
+          )}
         </nav>
         <div className="md:hidden">
           <Sheet>
@@ -80,7 +119,20 @@ export default function Header() {
                     {link.label}
                   </Link>
                 ))}
-                <Button onClick={handleLogin} className="w-full">Login</Button>
+                {user ? (
+                   <div className="flex flex-col w-full gap-4">
+                     <div className='flex items-center gap-2'>
+                        <Avatar>
+                          <AvatarImage src={user.photoURL || undefined} alt={user.displayName || 'User'} />
+                          <AvatarFallback>{user.displayName?.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                        <span>{user.displayName}</span>
+                     </div>
+                    <Button onClick={handleLogout} className="w-full">Logout</Button>
+                  </div>
+                ) : (
+                  <Button onClick={handleLogin} className="w-full">Login</Button>
+                )}
               </div>
             </SheetContent>
           </Sheet>
