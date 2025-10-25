@@ -14,27 +14,24 @@ export const SKILLS = [
 export const PROJECTS = [
   {
     title: 'Project One',
+    slug: 'project-one',
     description: 'A brief description of project one, highlighting its purpose and key features. This was a challenging yet rewarding project.',
     tech: ['React', 'Next.js', 'Tailwind CSS'],
     image: 'project-1',
-    liveUrl: '#',
-    githubUrl: '#',
   },
   {
     title: 'Project Two',
+    slug: 'project-two',
     description: 'A brief description of project two. It solves a real-world problem by leveraging modern web technologies.',
     tech: ['TypeScript', 'Node.js', 'PostgreSQL'],
     image: 'project-2',
-    liveUrl: '#',
-    githubUrl: '#',
   },
   {
     title: 'Project Three',
+    slug: 'project-three',
     description: 'A brief description of project three. This project focuses on performance and user experience, built with a mobile-first approach.',
     tech: ['React Native', 'Firebase', 'Redux'],
     image: 'project-3',
-    liveUrl: '#',
-    githubUrl: '#',
   },
 ];
 

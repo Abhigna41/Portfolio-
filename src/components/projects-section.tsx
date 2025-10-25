@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import { Github, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function ProjectsSection() {
@@ -41,16 +41,10 @@ export default function ProjectsSection() {
                   </div>
                 </CardContent>
                 <CardFooter className="gap-4">
-                  <Button asChild variant="outline">
-                    <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      GitHub
-                    </Link>
-                  </Button>
                   <Button asChild>
-                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <Link href={`/projects/${project.slug}`}>
                       <ExternalLink className="mr-2 h-4 w-4" />
-                      Live Demo
+                      View Details
                     </Link>
                   </Button>
                 </CardFooter>
