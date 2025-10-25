@@ -5,10 +5,10 @@ import Link from 'next/link';
 import { Code2, Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { getAuth } from 'firebase/auth'; // Import auth from your Firebase config
-import { signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User } from 'firebase/auth'; // Import Firebase auth methods
-import { useToast } from '@/hooks/use-toast'; // Import the useToast hook
-import { app } from '@/lib/firebase';
+import { getAuth } from 'firebase/auth'; 
+import { signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User } from 'firebase/auth'; 
+import { useToast } from '@/hooks/use-toast'; 
+import { useFirebase } from '@/firebase';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 const navLinks = [
@@ -20,27 +20,22 @@ const navLinks = [
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [user, setUser] = useState<User | null>(null);
-  const { toast } = useToast(); // Get the toast function
-  const auth = getAuth(app);
+  const { auth, user } = useFirebase();
+  const { toast } = useToast(); 
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      unsubscribe();
     }
-  }, [auth]);
+  }, []);
 
   const handleLogin = async () => {
+    if (!auth) return;
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
@@ -59,6 +54,7 @@ export default function Header() {
   };
 
   const handleLogout = async () => {
+    if (!auth) return;
     try {
       await auth.signOut();
       toast({

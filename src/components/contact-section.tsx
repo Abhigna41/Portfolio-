@@ -9,6 +9,9 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { CONTACT_DETAILS } from '@/app/lib/portfolio-data';
+import { addDocumentNonBlocking } from '@/firebase';
+import { collection, serverTimestamp } from 'firebase/firestore';
+import { useFirestore } from '@/firebase';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -18,6 +21,7 @@ const formSchema = z.object({
 
 export default function ContactSection() {
   const { toast } = useToast();
+  const firestore = useFirestore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -28,9 +32,21 @@ export default function ContactSection() {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real app, you would send this to a server endpoint.
-    console.log(values);
-    await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
+    if (!firestore) {
+      toast({
+        variant: "destructive",
+        title: "Uh oh! Something went wrong.",
+        description: "Could not connect to the database. Please try again later.",
+      });
+      return;
+    }
+    const contactMessagesCollection = collection(firestore, 'contact_messages');
+    
+    addDocumentNonBlocking(contactMessagesCollection, {
+      ...values,
+      timestamp: serverTimestamp(),
+    });
+
     toast({
       title: 'Message Sent!',
       description: "Thanks for reaching out. I'll get back to you soon.",
@@ -99,7 +115,7 @@ export default function ContactSection() {
                     </FormItem>
                   )}
                 />
-                <Button type="submit" disabled={form.formState.isSubmitting} className="w-full">
+                <Button type="submit" disabled={!firestore || form.formState.isSubmitting} className="w-full">
                   {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
