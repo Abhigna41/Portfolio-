@@ -5,8 +5,7 @@ import Link from 'next/link';
 import { Code2, Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { getAuth } from 'firebase/auth'; 
-import { signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User } from 'firebase/auth'; 
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'; 
 import { useToast } from '@/hooks/use-toast'; 
 import { useFirebase } from '@/firebase';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
@@ -35,7 +34,14 @@ export default function Header() {
   }, []);
 
   const handleLogin = async () => {
-    if (!auth) return;
+    if (!auth) {
+      toast({
+        title: "Authentication service not available",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+      return;
+    }
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
@@ -54,7 +60,14 @@ export default function Header() {
   };
 
   const handleLogout = async () => {
-    if (!auth) return;
+    if (!auth) {
+      toast({
+        title: "Authentication service not available",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+      return;
+    }
     try {
       await auth.signOut();
       toast({
@@ -88,7 +101,7 @@ export default function Header() {
             <div className="flex items-center gap-4">
               <Avatar>
                 <AvatarImage src={user.photoURL || undefined} alt={user.displayName || 'User'} />
-                <AvatarFallback>{user.displayName?.charAt(0)}</AvatarFallback>
+                <AvatarFallback>{user.displayName?.charAt(0) || 'U'}</AvatarFallback>
               </Avatar>
               <Button onClick={handleLogout}>Logout</Button>
             </div>
@@ -116,18 +129,18 @@ export default function Header() {
                   </Link>
                 ))}
                 {user ? (
-                   <div className="flex flex-col w-full gap-4">
+                   <div className="flex flex-col w-full gap-4 pt-4 border-t">
                      <div className='flex items-center gap-2'>
                         <Avatar>
                           <AvatarImage src={user.photoURL || undefined} alt={user.displayName || 'User'} />
-                          <AvatarFallback>{user.displayName?.charAt(0)}</AvatarFallback>
+                          <AvatarFallback>{user.displayName?.charAt(0) || 'U'}</AvatarFallback>
                         </Avatar>
                         <span>{user.displayName}</span>
                      </div>
                     <Button onClick={handleLogout} className="w-full">Logout</Button>
                   </div>
                 ) : (
-                  <Button onClick={handleLogin} className="w-full">Login</Button>
+                  <Button onClick={handleLogin} className="w-full mt-4 border-t pt-6">Login</Button>
                 )}
               </div>
             </SheetContent>
