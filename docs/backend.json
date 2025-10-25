@@ -1,0 +1,162 @@
+{
+  "entities": {
+    "Project": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Project",
+      "type": "object",
+      "description": "Represents a project showcased in the portfolio.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the project."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the project."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description of the project."
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL to the image representing the project.",
+          "format": "uri"
+        },
+        "projectUrl": {
+          "type": "string",
+          "description": "URL to the live project or its repository.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "imageUrl",
+        "projectUrl"
+      ]
+    },
+    "Skill": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Skill",
+      "type": "object",
+      "description": "Represents a skill or competency.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the skill."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the skill (e.g., 'JavaScript', 'React')."
+        },
+        "level": {
+          "type": "number",
+          "description": "A numerical representation of the skill level (e.g., 1-5, where 5 is expert)."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "level"
+      ]
+    },
+    "ContactMessage": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ContactMessage",
+      "type": "object",
+      "description": "Represents a message sent through the contact form.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the contact message."
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the person sending the message."
+        },
+        "email": {
+          "type": "string",
+          "description": "The email address of the person sending the message.",
+          "format": "email"
+        },
+        "message": {
+          "type": "string",
+          "description": "The content of the message."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "The date and time the message was sent.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email",
+        "message",
+        "timestamp"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/projects/{projectId}",
+        "definition": {
+          "entityName": "Project",
+          "schema": {
+            "$ref": "#/backend/entities/Project"
+          },
+          "description": "Stores project data.",
+          "params": [
+            {
+              "name": "projectId",
+              "description": "The unique identifier for the project."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/skills/{skillId}",
+        "definition": {
+          "entityName": "Skill",
+          "schema": {
+            "$ref": "#/backend/entities/Skill"
+          },
+          "description": "Stores skill data.",
+          "params": [
+            {
+              "name": "skillId",
+              "description": "The unique identifier for the skill."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/contact_messages/{contactMessageId}",
+        "definition": {
+          "entityName": "ContactMessage",
+          "schema": {
+            "$ref": "#/backend/entities/ContactMessage"
+          },
+          "description": "Stores contact messages.  Admin access only.",
+          "params": [
+            {
+              "name": "contactMessageId",
+              "description": "The unique identifier for the contact message."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to manage portfolio data including projects, skills, and contact messages. It prioritizes clear separation of data types and simple security rules.\n\n*   **/projects collection:** Stores project data. This collection is suitable for public access. If more granular access control is needed, consider a user-owned subcollection.\n*   **/skills collection:** Stores skill data.  This collection is suitable for public access. If more granular access control is needed, consider a user-owned subcollection.\n*   **/contact_messages collection:** Stores contact messages. Access to this collection is restricted to administrators. No public access is allowed.\n\n**Authorization Independence:**  Since the collections do not depend on parent documents, authorization independence is inherently achieved.  Each collection stands alone, simplifying rules.\n\n**QAPs Support:**\n\n*   *Projects & Skills*:  QAPs for project and skill listing are supported because these are top-level collections with a homogeneous security posture (e.g., readable by all, or requiring authentication, etc.)\n*   *Contact Messages*: Since contact messages are only accessible by admins, listing is secure."
+  }
+}

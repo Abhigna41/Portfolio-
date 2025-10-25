@@ -28,10 +28,9 @@ export default function AboutSection() {
           </div>
           <div className="md:col-span-2 text-center md:text-left space-y-4">
             <p className="text-lg text-muted-foreground">
-              I am a passionate and results-driven Full-Stack Developer with a knack for creating intuitive and dynamic user interfaces. With a strong foundation in both front-end and back-end technologies, I enjoy bringing ideas to life from concept to deployment.
-            </p>
-            <p className="text-lg text-muted-foreground">
-              When I'm not coding, I enjoy exploring new technologies, contributing to open-source projects, and hiking in the great outdoors. I am always eager to learn and grow, both personally and professionally.
+            I'm a Master's in Computer Science graduate specializing in Data Science and Machine Learning. I'm passionate about building intelligent applications that solve real-world problems.
+
+          I focus on developing user-friendly web applications with attention to detail, scalability, and performance.         
             </p>
           </div>
         </div>
