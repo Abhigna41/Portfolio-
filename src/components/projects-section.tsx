@@ -1,0 +1,64 @@
+import { PROJECTS } from '@/app/lib/portfolio-data';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from './ui/card';
+import Image from 'next/image';
+import { Badge } from './ui/badge';
+import { Button } from './ui/button';
+import Link from 'next/link';
+import { Github, ExternalLink } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+
+export default function ProjectsSection() {
+  return (
+    <section id="projects" className="py-16 md:py-24 bg-secondary">
+      <div className="container mx-auto px-4 md:px-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">My Projects</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {PROJECTS.map((project) => {
+            const projectImage = PlaceHolderImages.find(p => p.id === project.image);
+            return (
+              <Card key={project.title} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                {projectImage && (
+                  <div className="aspect-w-3 aspect-h-2">
+                    <Image
+                      src={projectImage.imageUrl}
+                      alt={project.title}
+                      width={600}
+                      height={400}
+                      className="w-full h-full object-cover"
+                      data-ai-hint={projectImage.imageHint}
+                    />
+                  </div>
+                )}
+                <CardHeader>
+                  <CardTitle>{project.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow">
+                  <CardDescription>{project.description}</CardDescription>
+                  <div className="flex flex-wrap gap-2 mt-4">
+                    {project.tech.map((tech) => (
+                      <Badge key={tech} variant="secondary">{tech}</Badge>
+                    ))}
+                  </div>
+                </CardContent>
+                <CardFooter className="gap-4">
+                  <Button asChild variant="outline">
+                    <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <Github className="mr-2 h-4 w-4" />
+                      GitHub
+                    </Link>
+                  </Button>
+                  <Button asChild>
+                    <Link href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      Live Demo
+                    </Link>
+                  </Button>
+                </CardFooter>
+              </Card>
+            )
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}
