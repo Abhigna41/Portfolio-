@@ -1,3 +1,5 @@
+'use client';
+
 import { SKILLS } from '@/app/lib/portfolio-data';
 import { Card } from './ui/card';
 

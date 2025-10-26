@@ -1,3 +1,5 @@
+'use client';
+
 import { PROJECTS } from '@/app/lib/portfolio-data';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from './ui/card';
 import Image from 'next/image';
