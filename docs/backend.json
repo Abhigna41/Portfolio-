@@ -103,7 +103,8 @@
   "auth": {
     "providers": [
       "password",
-      "anonymous"
+      "anonymous",
+      "google.com"
     ]
   },
   "firestore": {
@@ -157,6 +158,6 @@
         }
       }
     ],
-    "reasoning": "The Firestore structure is designed to manage portfolio data including projects, skills, and contact messages. It prioritizes clear separation of data types and simple security rules.\n\n*   **/projects collection:** Stores project data. This collection is suitable for public access. If more granular access control is needed, consider a user-owned subcollection.\n*   **/skills collection:** Stores skill data.  This collection is suitable for public access. If more granular access control is needed, consider a user-owned subcollection.\n*   **/contact_messages collection:** Stores contact messages. Access to this collection is restricted to administrators. No public access is allowed.\n\n**Authorization Independence:**  Since the collections do not depend on parent documents, authorization independence is inherently achieved.  Each collection stands alone, simplifying rules.\n\n**QAPs Support:**\n\n*   *Projects & Skills*:  QAPs for project and skill listing are supported because these are top-level collections with a homogeneous security posture (e.g., readable by all, or requiring authentication, etc.)\n*   *Contact Messages*: Since contact messages are only accessible by admins, listing is secure."
+    "reasoning": "The Firestore structure is designed to manage portfolio data including projects, skills, and contact messages. It prioritizes clear separation of data types and simple security rules.\n\n*   **/projects collection:** Stores project data. This collection is suitable for public access. If more granular access control is needed, consider a user-owned subcollection.\n*   **/skills collection:** Stores skill data.  This collection is suitable for public access. If more granular access control is needed, consider a user-owned subcollection.\n*   **/contact_messages collection:** Stores contact messages. Public write is allowed so that unauthenticated users can send messages. Read access should be restricted to administrators.\n\n**Authorization Independence:**  Since the collections do not depend on parent documents, authorization independence is inherently achieved.  Each collection stands alone, simplifying rules.\n\n**QAPs Support:**\n\n*   *Projects & Skills*:  QAPs for project and skill listing are supported because these are top-level collections with a homogeneous security posture (e.g., readable by all, or requiring authentication, etc.)\n*   *Contact Messages*: Since contact messages are only accessible by admins, listing is secure."
   }
 }
