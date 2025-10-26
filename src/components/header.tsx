@@ -5,10 +5,6 @@ import Link from 'next/link';
 import { Code2, Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'; 
-import { useToast } from '@/hooks/use-toast'; 
-import { useFirebase } from '@/firebase';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -19,8 +15,7 @@ const navLinks = [
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const { auth, user } = useFirebase();
-  const { toast } = useToast(); 
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,57 +27,8 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     }
   }, []);
-
-  const handleLogin = async () => {
-    if (!auth) {
-      toast({
-        title: "Authentication service not available",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-      return;
-    }
-    const provider = new GoogleAuthProvider();
-    try {
-      await signInWithPopup(auth, provider);
-      toast({
-        title: "Logged In",
-        description: "You have successfully logged in.",
-      });
-    } catch (error) {
-      console.error("Login failed:", error);
-      toast({
-        title: "Login Failed",
-        description: "There was an error logging in. Please try again.",
-        variant: "destructive",
-      });
-    }
-  };
-
-  const handleLogout = async () => {
-    if (!auth) {
-      toast({
-        title: "Authentication service not available",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-      return;
-    }
-    try {
-      await auth.signOut();
-      toast({
-        title: "Logged Out",
-        description: "You have successfully logged out.",
-      });
-    } catch (error) {
-      console.error("Logout failed:", error);
-      toast({
-        title: "Logout Failed",
-        description: "There was an error logging out. Please try again.",
-        variant: "destructive",
-      });
-    }
-  };
+  
+  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-sm border-b' : 'bg-transparent'}`}>
@@ -97,20 +43,9 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          {user ? (
-            <div className="flex items-center gap-4">
-              <Avatar>
-                <AvatarImage src={user.photoURL || undefined} alt={user.displayName || 'User'} />
-                <AvatarFallback>{user.displayName?.charAt(0) || 'U'}</AvatarFallback>
-              </Avatar>
-              <Button onClick={handleLogout}>Logout</Button>
-            </div>
-          ) : (
-            <Button onClick={handleLogin}>Login</Button>
-          )}
         </nav>
         <div className="md:hidden">
-          <Sheet>
+          <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu />
@@ -119,29 +54,15 @@ export default function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <div className="flex flex-col items-start gap-6 p-6">
-                <Link href="/" className="flex items-center gap-2 font-bold text-xl mb-4">
+                <Link href="/" className="flex items-center gap-2 font-bold text-xl mb-4" onClick={closeMobileMenu}>
                   <Code2 className="h-6 w-6 text-primary" />
                   <span>ProFolio</span>
                 </Link>
                 {navLinks.map((link) => (
-                  <Link key={link.href} href={link.href} className="text-lg font-medium hover:text-primary transition-colors">
+                  <Link key={link.href} href={link.href} className="text-lg font-medium hover:text-primary transition-colors" onClick={closeMobileMenu}>
                     {link.label}
                   </Link>
                 ))}
-                {user ? (
-                   <div className="flex flex-col w-full gap-4 pt-4 border-t">
-                     <div className='flex items-center gap-2'>
-                        <Avatar>
-                          <AvatarImage src={user.photoURL || undefined} alt={user.displayName || 'User'} />
-                          <AvatarFallback>{user.displayName?.charAt(0) || 'U'}</AvatarFallback>
-                        </Avatar>
-                        <span>{user.displayName}</span>
-                     </div>
-                    <Button onClick={handleLogout} className="w-full">Logout</Button>
-                  </div>
-                ) : (
-                  <Button onClick={handleLogin} className="w-full mt-4 border-t pt-6">Login</Button>
-                )}
               </div>
             </SheetContent>
           </Sheet>
