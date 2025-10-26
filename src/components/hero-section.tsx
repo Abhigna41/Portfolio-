@@ -5,7 +5,7 @@ import { ArrowDown } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section id="home" className="container mx-auto flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 md:px-6">
+    <section id="home" className="container mx-auto flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 md:px-6 animate-fade-in-up">
       <div className="text-center space-y-6">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
           <span className="block mb-2 text-muted-foreground">Hi, I am a</span>
