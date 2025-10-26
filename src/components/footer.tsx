@@ -1,4 +1,4 @@
-import { Code2 } from "lucide-react";
+import { Code2, LogIn } from "lucide-react";
 import Link from "next/link";
 import { SOCIAL_LINKS } from "@/app/lib/portfolio-data";
 import { Button } from "./ui/button";
@@ -14,9 +14,13 @@ export default function Footer() {
             <Code2 className="h-6 w-6 text-primary" />
             <span>ProFolio</span>
           </Link>
-          <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} ProFolio. All rights reserved.
-          </p>
+          <div className="flex flex-col items-center gap-2 text-sm text-muted-foreground">
+            <p>&copy; {currentYear} ProFolio. All rights reserved.</p>
+            <Link href="/login" className="flex items-center gap-1 hover:text-primary transition-colors">
+              <LogIn className="h-4 w-4" />
+              <span>Admin Login</span>
+            </Link>
+          </div>
           <div className="flex gap-2">
             {SOCIAL_LINKS.map((link) => (
               <Button key={link.name} asChild variant="ghost" size="icon">
