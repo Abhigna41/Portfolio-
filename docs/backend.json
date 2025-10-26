@@ -147,7 +147,7 @@
           "schema": {
             "$ref": "#/backend/entities/ContactMessage"
           },
-          "description": "Stores contact messages.  Admin access only.",
+          "description": "Stores contact messages. Public write access.",
           "params": [
             {
               "name": "contactMessageId",

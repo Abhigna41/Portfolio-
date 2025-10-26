@@ -1,11 +1,35 @@
 "use client";
 
+import { useEffect } from 'react';
 import { Button } from './ui/button';
 import { SOCIAL_LINKS } from '@/app/lib/portfolio-data';
 import Link from 'next/link';
 import { ArrowDown } from 'lucide-react';
 
 export default function HeroSection() {
+  useEffect(() => {
+    const keyframes = `
+      @keyframes gradient-x {
+        0%, 100% {
+          background-size: 200% 200%;
+          background-position: left center;
+        }
+        50% {
+          background-size: 200% 200%;
+          background-position: right center;
+        }
+      }
+    `;
+
+    const style = document.createElement('style');
+    style.innerHTML = keyframes;
+    document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
+
   return (
     <section id="home" className="container mx-auto flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 md:px-6 animate-fade-in-up">
       <div className="text-center space-y-6">
@@ -36,24 +60,4 @@ export default function HeroSection() {
       </div>
     </section>
   );
-}
-
-// Helper function to animate gradient
-const keyframes = `
-@keyframes gradient-x {
-  0%, 100% {
-    background-size: 200% 200%;
-    background-position: left center;
-  }
-  50% {
-    background-size: 200% 200%;
-    background-position: right center;
-  }
-}
-`;
-
-const style = typeof document !== 'undefined' ? document.createElement('style') : null;
-if (style) {
-  style.innerHTML = keyframes;
-  document.head.appendChild(style);
 }
