@@ -13,7 +13,9 @@ import { useAuth, useUser } from '@/firebase';
 import { useRouter } from 'next/navigation';
 import { initiateEmailSignIn, initiateEmailSignUp } from '@/firebase/non-blocking-login';
 import { Github, Loader2 } from 'lucide-react';
-import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { FirebaseError } from 'firebase/app';
+
 
 const formSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email.' }),
@@ -88,7 +90,8 @@ export default function LoginPage() {
             description: "You've successfully logged in.",
         });
         router.push('/admin/dashboard');
-    } catch (signInError: any) {
+    } catch (error) {
+        const signInError = error as FirebaseError;
         if (signInError.code === 'auth/user-not-found') {
             try {
                 await createUserWithEmailAndPassword(auth, values.email, values.password);
@@ -97,11 +100,12 @@ export default function LoginPage() {
                     description: "You've been signed up and logged in.",
                 });
                 router.push('/admin/dashboard');
-            } catch (signUpError: any) {
+            } catch (signUpError) {
+                const signUpErrorTyped = signUpError as FirebaseError;
                 toast({
                     variant: "destructive",
                     title: 'Sign up failed.',
-                    description: signUpError.message,
+                    description: signUpErrorTyped.message,
                 });
             }
         } else {
