@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from './ui/button';
 import { SOCIAL_LINKS } from '@/app/lib/portfolio-data';
 import Link from 'next/link';
@@ -9,7 +11,7 @@ export default function HeroSection() {
       <div className="text-center space-y-6">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
           <span className="block mb-2 text-muted-foreground">Hi, I am a</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Full-Stack Developer</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-gradient-x">Full-Stack Developer</span>
         </h1>
         <p className="max-w-2xl mx-auto text-muted-foreground md:text-xl">
           I build beautiful, responsive, and performant web applications. Passionate about creating amazing user experiences and solving complex problems.
@@ -34,4 +36,24 @@ export default function HeroSection() {
       </div>
     </section>
   );
+}
+
+// Helper function to animate gradient
+const keyframes = `
+@keyframes gradient-x {
+  0%, 100% {
+    background-size: 200% 200%;
+    background-position: left center;
+  }
+  50% {
+    background-size: 200% 200%;
+    background-position: right center;
+  }
+}
+`;
+
+const style = typeof document !== 'undefined' ? document.createElement('style') : null;
+if (style) {
+  style.innerHTML = keyframes;
+  document.head.appendChild(style);
 }
