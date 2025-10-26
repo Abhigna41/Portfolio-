@@ -2,21 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Code2, Menu, LogOut, UserCircle } from 'lucide-react';
+import { Code2, Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
-import { useAuth, useUser } from '@/firebase';
-import { useRouter } from 'next/navigation';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
 
 const navLinks = [
   { href: '/#about', label: 'About' },
@@ -28,9 +16,6 @@ const navLinks = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { user, isUserLoading } = useUser();
-  const auth = useAuth();
-  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,22 +29,6 @@ export default function Header() {
   }, []);
   
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
-
-  const handleLogout = async () => {
-    if (auth) {
-      await auth.signOut();
-      router.push('/');
-    }
-  };
-  
-  const getInitials = (name?: string | null) => {
-    if (!name) return 'U';
-    const names = name.split(' ');
-    if (names.length > 1) {
-      return `${names[0][0]}${names[names.length - 1][0]}`.toUpperCase();
-    }
-    return name.substring(0, 2).toUpperCase();
-  };
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-sm border-b' : 'bg-transparent'}`}>
@@ -76,37 +45,6 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-4">
-          {!isUserLoading && user && (
-             <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                  <Avatar className="h-8 w-8">
-                    <AvatarImage src={user.photoURL ?? undefined} alt={user.displayName ?? 'User'} />
-                    <AvatarFallback>{getInitials(user.displayName)}</AvatarFallback>
-                  </Avatar>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56" align="end" forceMount>
-                <DropdownMenuLabel className="font-normal">
-                  <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">{user.displayName}</p>
-                    <p className="text-xs leading-none text-muted-foreground">
-                      {user.email}
-                    </p>
-                  </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => router.push('/admin/dashboard')}>
-                  <UserCircle className="mr-2 h-4 w-4" />
-                  <span>Dashboard</span>
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={handleLogout}>
-                  <LogOut className="mr-2 h-4 w-4" />
-                  <span>Log out</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
