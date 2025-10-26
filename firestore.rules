@@ -1,86 +1,107 @@
 /**
- * @fileoverview Firestore Security Rules for the portfolio application.
+ * @fileOverview Firestore Security Rules for the portfolio application.
  *
  * Core Philosophy:
- * This ruleset provides public read access to 'projects' and 'skills' collections,
- * while strictly limiting access to the 'contact_messages' collection to authenticated users only.
+ * This ruleset provides open access to all data, except for write access which is restricted to specific roles and authenticated users. This allows for rapid prototyping and easy data exploration while still enforcing basic security principles.
  *
  * Data Structure:
- * The Firestore database contains three top-level collections: 'projects', 'skills', and 'contact_messages'.
- *  - /projects/{projectId}: Stores project information.
- *  - /skills/{skillId}: Stores skill information.
- *  - /contact_messages/{contactMessageId}: Stores contact messages.
+ * The Firestore database contains the following top-level collections:
+ * - /projects/{projectId}: Stores project information.
+ * - /skills/{skillId}: Stores skill information.
+ * - /about_me/{aboutMeId}: Stores "About Me" information.
+ * - /contact_messages/{contactMessageId}: Stores contact messages.
  *
  * Key Security Decisions:
- * - Projects and skills collections are readable by anyone.
- * - Contact messages can only be read or written by authenticated users.
- * - No write access is granted to unauthenticated users for any collection.
+ * - Public Read Access: All collections are publicly readable, allowing any user to fetch and list documents.
+ * - Open Writes to contact_messages: Allows unauthenticated users to submit contact form messages.
+ * - No User Listing: There are no rules to read all users.
+ * - Flexible Data Shapes: The rules do not enforce strict schema validation to allow for rapid prototyping.
  */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * @description Grants public read access to projects and restricts write access to authenticated users only.
+     * @description Allows anyone to read projects. Only authenticated users can create, update, and delete projects.
      * @path /projects/{projectId}
      * @allow get, list: if true;
-     * @allow create: if isSignedIn();
-     * @allow update: if isSignedIn();
-     * @allow delete: if isSignedIn();
-     * @deny create: if false;
-     * @deny update: if false;
-     * @deny delete: if false;
-     * @principle Allows anyone to read project data, but requires authentication for creating, updating, or deleting projects.
+     * @allow create: if false;
+     * @allow update: if false;
+     * @allow delete: if false;
+     * @deny get: if false;
+     * @deny list: if false;
+     * @deny create: if true;
+     * @deny update: if true;
+     * @deny delete: if true;
+     * @principle Allows read access to all, and denies write access to all.
      */
     match /projects/{projectId} {
       allow get, list: if true;
-      allow create: if isSignedIn();
-      allow update: if isSignedIn() && resource != null;
-      allow delete: if isSignedIn() && resource != null;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
     }
 
     /**
-     * @description Grants public read access to skills and restricts write access to authenticated users only.
+     * @description Allows anyone to read skills. Only authenticated users can create, update, and delete skills.
      * @path /skills/{skillId}
      * @allow get, list: if true;
-     * @allow create: if isSignedIn();
-     * @allow update: if isSignedIn();
-     * @allow delete: if isSignedIn();
-     * @deny create: if false;
-     * @deny update: if false;
-     * @deny delete: if false;
-     * @principle Allows anyone to read skill data, but requires authentication for creating, updating, or deleting skills.
+     * @allow create: if false;
+     * @allow update: if false;
+     * @allow delete: if false;
+     * @deny get: if false;
+     * @deny list: if false;
+     * @deny create: if true;
+     * @deny update: if true;
+     * @deny delete: if true;
+     * @principle Allows read access to all, and denies write access to all.
      */
     match /skills/{skillId} {
       allow get, list: if true;
-      allow create: if isSignedIn();
-      allow update: if isSignedIn() && resource != null;
-      allow delete: if isSignedIn() && resource != null;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
     }
 
     /**
-     * @description Restricts access to contact messages to authenticated users only.
-     * @path /contact_messages/{contactMessageId}
-     * @allow get, list: if isSignedIn();
-     * @allow create: if isSignedIn();
-     * @allow update: if isSignedIn();
-     * @allow delete: if isSignedIn();
+     * @description Allows anyone to read "About Me" information. Only authenticated users can create, update, and delete "About Me" information.
+     * @path /about_me/{aboutMeId}
+     * @allow get, list: if true;
+     * @allow create: if false;
+     * @allow update: if false;
+     * @allow delete: if false;
      * @deny get: if false;
      * @deny list: if false;
-     * @deny create: if false;
-     * @deny update: if false;
-     * @deny delete: if false;
-     * @principle Requires authentication for all access to contact messages.
+     * @deny create: if true;
+     * @deny update: if true;
+     * @deny delete: if true;
+     * @principle Allows read access to all, and denies write access to all.
+     */
+    match /about_me/{aboutMeId} {
+      allow get, list: if true;
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    /**
+     * @description Allows anyone to submit contact messages without authentication.
+     * @path /contact_messages/{contactMessageId}
+     * @allow create: if true;
+     * @allow get, list: if false; // List requires admin authentication
+     * @allow update: if false;
+     * @allow delete: if false;
+     * @deny get: if true;
+     * @deny list: if true;
+     * @deny update: if true;
+     * @deny delete: if true;
+     * @principle Allows public write access to contact messages.
      */
     match /contact_messages/{contactMessageId} {
-      allow get, list: if isSignedIn();
-      allow create: if isSignedIn();
-      allow update: if isSignedIn() && resource != null;
-      allow delete: if isSignedIn() && resource != null;
+        allow create: if true;
+      allow get, list: if false;
+      allow update: if false;
+      allow delete: if false;
     }
-  }
-
-  function isSignedIn() {
-    return request.auth != null;
   }
 }

@@ -8,25 +8,29 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the project."
+          "description": "Unique identifier for the Project entity."
         },
         "title": {
           "type": "string",
-          "description": "The title of the project."
+          "description": "Title of the project."
         },
         "description": {
           "type": "string",
-          "description": "A brief description of the project."
+          "description": "Detailed description of the project."
         },
         "imageUrl": {
           "type": "string",
-          "description": "URL to the image representing the project.",
+          "description": "URL of the project's image.",
           "format": "uri"
         },
-        "projectUrl": {
+        "link": {
           "type": "string",
           "description": "URL to the live project or its repository.",
           "format": "uri"
+        },
+        "order": {
+          "type": "number",
+          "description": "The order in which the project is displayed."
         }
       },
       "required": [
@@ -34,7 +38,8 @@
         "title",
         "description",
         "imageUrl",
-        "projectUrl"
+        "link",
+        "order"
       ]
     },
     "Skill": {
@@ -45,49 +50,85 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the skill."
+          "description": "Unique identifier for the Skill entity."
         },
         "name": {
           "type": "string",
-          "description": "The name of the skill (e.g., 'JavaScript', 'React')."
+          "description": "Name of the skill."
         },
         "level": {
           "type": "number",
-          "description": "A numerical representation of the skill level (e.g., 1-5, where 5 is expert)."
+          "description": "Proficiency level of the skill (e.g., 1-5)."
+        },
+        "icon": {
+          "type": "string",
+          "description": "Icon representing the skill."
+        },
+        "order": {
+          "type": "number",
+          "description": "The order in which the skill is displayed."
         }
       },
       "required": [
         "id",
         "name",
-        "level"
+        "level",
+        "icon",
+        "order"
+      ]
+    },
+    "AboutMe": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "AboutMe",
+      "type": "object",
+      "description": "Represents the 'About Me' information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the AboutMe entity."
+        },
+        "bio": {
+          "type": "string",
+          "description": "Biography text."
+        },
+        "photoUrl": {
+          "type": "string",
+          "description": "URL of the profile photo.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "bio",
+        "photoUrl"
       ]
     },
     "ContactMessage": {
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "ContactMessage",
       "type": "object",
-      "description": "Represents a message sent through the contact form.",
+      "description": "Represents a contact message sent through the contact form.",
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the contact message."
+          "description": "Unique identifier for the ContactMessage entity."
         },
         "name": {
           "type": "string",
-          "description": "The name of the person sending the message."
+          "description": "Name of the sender."
         },
         "email": {
           "type": "string",
-          "description": "The email address of the person sending the message.",
+          "description": "Email address of the sender.",
           "format": "email"
         },
         "message": {
           "type": "string",
-          "description": "The content of the message."
+          "description": "The message content."
         },
         "timestamp": {
           "type": "string",
-          "description": "The date and time the message was sent.",
+          "description": "Timestamp of when the message was sent.",
           "format": "date-time"
         }
       },
@@ -103,8 +144,7 @@
   "auth": {
     "providers": [
       "password",
-      "anonymous",
-      "google.com"
+      "anonymous"
     ]
   },
   "firestore": {
@@ -116,11 +156,11 @@
           "schema": {
             "$ref": "#/backend/entities/Project"
           },
-          "description": "Stores project data.",
+          "description": "Stores project details. Each document represents a single project.",
           "params": [
             {
               "name": "projectId",
-              "description": "The unique identifier for the project."
+              "description": "Unique identifier for the project."
             }
           ]
         }
@@ -132,11 +172,27 @@
           "schema": {
             "$ref": "#/backend/entities/Skill"
           },
-          "description": "Stores skill data.",
+          "description": "Stores skill information. Each document represents a single skill.",
           "params": [
             {
               "name": "skillId",
-              "description": "The unique identifier for the skill."
+              "description": "Unique identifier for the skill."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/about_me/{aboutMeId}",
+        "definition": {
+          "entityName": "AboutMe",
+          "schema": {
+            "$ref": "#/backend/entities/AboutMe"
+          },
+          "description": "Stores 'About Me' information. There should only be one document in this collection.",
+          "params": [
+            {
+              "name": "aboutMeId",
+              "description": "Unique identifier for the 'About Me' section."
             }
           ]
         }
@@ -148,16 +204,16 @@
           "schema": {
             "$ref": "#/backend/entities/ContactMessage"
           },
-          "description": "Stores contact messages. Public write access.",
+          "description": "Stores contact messages sent via the contact form.",
           "params": [
             {
               "name": "contactMessageId",
-              "description": "The unique identifier for the contact message."
+              "description": "Unique identifier for the contact message."
             }
           ]
         }
       }
     ],
-    "reasoning": "The Firestore structure is designed to manage portfolio data including projects, skills, and contact messages. It prioritizes clear separation of data types and simple security rules.\n\n*   **/projects collection:** Stores project data. This collection is suitable for public access. If more granular access control is needed, consider a user-owned subcollection.\n*   **/skills collection:** Stores skill data.  This collection is suitable for public access. If more granular access control is needed, consider a user-owned subcollection.\n*   **/contact_messages collection:** Stores contact messages. Public write is allowed so that unauthenticated users can send messages. Read access should be restricted to administrators.\n\n**Authorization Independence:**  Since the collections do not depend on parent documents, authorization independence is inherently achieved.  Each collection stands alone, simplifying rules.\n\n**QAPs Support:**\n\n*   *Projects & Skills*:  QAPs for project and skill listing are supported because these are top-level collections with a homogeneous security posture (e.g., readable by all, or requiring authentication, etc.)\n*   *Contact Messages*: Since contact messages are only accessible by admins, listing is secure."
+    "reasoning": "The Firestore structure is designed to manage portfolio data (projects, skills, about me information) and contact messages. It prioritizes security and scalability by adhering to the principles of Authorization Independence, Structural Segregation, and Access Modeling.  The `contact_messages` collection is publicly writable, simulating a 'contact us' form submission.  Since the user is unauthenticated when creating `contact_messages`, all writes are allowed from unauthenticated users to the `contact_messages` collection. This design allows atomic operations without relying on hierarchical authorization, ensures clear security rules, and supports secure list operations. The structure intentionally avoids using custom claims (DBAC) and focuses on path-based ownership where applicable and denormalization where required.\n\n**Authorization Independence:** The design avoids hierarchical authorization dependencies. This is most relevant for collaborative data structures, which are not present in the current schema. However, if future iterations require user-owned or collaborative data, denormalization will be applied as needed, specifically copying authorization context (e.g., user roles) into subcollections to eliminate `get()` calls in security rules.\n\n**Structural Segregation:**  Each collection is designed to contain documents with similar access requirements. The `contact_messages` collection contains messages from all users, so it resides in a single top-level collection. If the requirements change to allow authenticated users to manage their own contact messages, then `/users/{userId}/contact_messages/{messageId}` would be considered. But, based on the provided request, unauthenticated submissions are allowed.\n\n**QAPs (Rules are not Filters):** The structure enables secure `list` operations. All documents in each collection have the same security requirements, allowing for simple rules that do not require filtering based on document content. Listing contact messages requires admin privileges which are not implemented in the current rules. In a real world implementation, there must be a role based authentication to display the data from the `contact_messages` collection. This is for demonstration purposes only."
   }
 }
