@@ -108,12 +108,17 @@ export default {
             'background-position': 'right center',
           },
         },
+        'jiggle': {
+          '0%, 100%': { transform: 'rotate(-8deg)' },
+          '50%': { transform: 'rotate(8deg)' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
         'gradient-x': 'gradient-x 5s ease infinite',
+        'jiggle': 'jiggle 0.2s ease-in-out infinite',
       },
     },
   },
