@@ -2,7 +2,6 @@
 
 import { useEffect } from 'react';
 import { Button } from './ui/button';
-import { SOCIAL_LINKS } from '@/app/lib/portfolio-data';
 import Link from 'next/link';
 import { ArrowDown } from 'lucide-react';
 
@@ -34,28 +33,19 @@ export default function HeroSection() {
     <section id="home" className="container mx-auto flex min-h-[calc(100vh-4rem)] items-center justify-center px-4 md:px-6 animate-fade-in-up">
       <div className="text-center space-y-6">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
-          <span className="block mb-2 text-muted-foreground">Hi, I am a</span>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-gradient-x">Full-Stack Developer</span>
+          <span className="block mb-2 text-muted-foreground">Hi, I'm  </span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 animate-gradient-x">Naga Abhigna Gunda </span>
         </h1>
         <p className="max-w-2xl mx-auto text-muted-foreground md:text-xl">
-          I build beautiful, responsive, and performant web applications. Passionate about creating amazing user experiences and solving complex problems.
+        Master’s in Computer Science graduate specializing in Data Science and Machine Learning. Passionate about building intelligent applications that solve real-world problems.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button asChild size="lg">
-            <Link href="#contact">Hire Me</Link>
+            <Link href="#about">About me</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
             <a href="/resume.pdf" download>Download CV <ArrowDown className="ml-2 h-4 w-4" /></a>
           </Button>
-        </div>
-        <div className="flex justify-center gap-4 pt-4">
-          {SOCIAL_LINKS.map((link) => (
-            <Button key={link.name} asChild variant="ghost" size="icon">
-              <Link href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
-                <link.icon className="h-6 w-6" />
-              </Link>
-            </Button>
-          ))}
         </div>
       </div>
     </section>

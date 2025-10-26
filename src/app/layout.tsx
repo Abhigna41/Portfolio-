@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { FirebaseClientProvider } from '@/firebase';
+import FloatingSocials from '@/components/floating-socials';
 
 export const metadata: Metadata = {
   title: 'ProFolio - Your Professional Showcase',
@@ -22,6 +23,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased bg-background text-foreground" suppressHydrationWarning>
         <FirebaseClientProvider>
+          <FloatingSocials />
           {children}
         </FirebaseClientProvider>
         <Toaster />

@@ -1,7 +1,5 @@
 import { Code2 } from "lucide-react";
 import Link from "next/link";
-import { SOCIAL_LINKS } from "@/app/lib/portfolio-data";
-import { Button } from "./ui/button";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,15 +15,7 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-2 text-sm text-muted-foreground">
             <p>&copy; {currentYear} ProFolio. All rights reserved.</p>
           </div>
-          <div className="flex gap-2">
-            {SOCIAL_LINKS.map((link) => (
-              <Button key={link.name} asChild variant="ghost" size="icon">
-                <Link href={link.url} target="_blank" rel="noopener noreferrer" aria-label={link.name}>
-                  <link.icon className="h-5 w-5" />
-                </Link>
-              </Button>
-            ))}
-          </div>
+          <div className="w-28"></div>
         </div>
       </div>
     </footer>
