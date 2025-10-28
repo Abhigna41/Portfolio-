@@ -5,7 +5,7 @@ import { FirebaseClientProvider } from '@/firebase';
 import FloatingSocials from '@/components/floating-socials';
 
 export const metadata: Metadata = {
-  title: 'ProFolio - Your Professional Showcase',
+  title: 'Portfolio',
   description: 'A personal portfolio to showcase professional work, skills, and projects.',
 };
 

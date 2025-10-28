@@ -13,24 +13,24 @@ export const SKILLS = [
 
 export const PROJECTS = [
   {
-    title: 'Project One',
+    title: 'Data Portal',
     slug: 'project-one',
-    description: 'A brief description of project one, highlighting its purpose and key features. This was a challenging yet rewarding project.',
-    tech: ['React', 'Next.js', 'Tailwind CSS'],
+    description: 'The Data Portal is a secure, user-friendly Flask web application designed for managing, submitting, and viewing industrial or organizational data efficiently. It allows users to log in, enter production or operational records, and store them safely in a MySQL database. The portal also provides features to view, filter, and download submitted data for analysis.',
+    tech: ['Python', 'SQL', 'HTML'],
     image: 'project-1',
   },
   {
-    title: 'Project Two',
+    title: 'Secure Data Sharing',
     slug: 'project-two',
-    description: 'A brief description of project two. It solves a real-world problem by leveraging modern web technologies.',
-    tech: ['TypeScript', 'Node.js', 'PostgreSQL'],
+    description: 'Secure Data Sharing System is a Flask web app that secures text and files with attribute-based encryption. It combines AES/RSA hybrid cryptography with policy-driven access, storing encrypted data in Firebase Firestore. The dashboard handles encryption/decryption, policy tests, and user/attribute management. I built the full stack, added automated tests, and hardened the repo for portfolio use.',
+    tech: ['Python', 'HTML', 'Firebase','Pychrotodome'],
     image: 'project-2',
   },
   {
     title: 'Project Three',
     slug: 'project-three',
     description: 'A brief description of project three. This project focuses on performance and user experience, built with a mobile-first approach.',
-    tech: ['React Native', 'Firebase', 'Redux'],
+    tech: ['Python', 'Firebase', 'Redux'],
     image: 'project-3',
   },
 ];

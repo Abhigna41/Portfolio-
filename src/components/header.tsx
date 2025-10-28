@@ -37,14 +37,14 @@ export default function Header() {
           <Code2 className="h-6 w-6 text-primary" />
           <span>ProFolio</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((link) => (
-            <Link key={link.href} href={link.href} className="text-sm font-medium hover:text-primary transition-colors">
-              {link.label}
-            </Link>
-          ))}
-        </nav>
         <div className="flex items-center gap-4">
+          <nav className="hidden md:flex items-center gap-6">
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="text-sm font-medium hover:text-primary transition-colors">
+                {link.label}
+              </Link>
+            ))}
+          </nav>
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
