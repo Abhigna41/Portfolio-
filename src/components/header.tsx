@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -27,8 +28,6 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     }
   }, []);
-  
-  const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${scrolled ? 'bg-background/80 backdrop-blur-sm border-b' : 'bg-transparent'}`}>
@@ -55,12 +54,12 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="right">
                 <div className="flex flex-col items-start gap-6 p-6">
-                  <Link href="/" className="flex items-center gap-2 font-bold text-xl mb-4" onClick={closeMobileMenu}>
+                  <Link href="/" className="flex items-center gap-2 font-bold text-xl mb-4" onClick={() => setIsMobileMenuOpen(false)}>
                     <Code2 className="h-6 w-6 text-primary" />
                     <span>ProFolio</span>
                   </Link>
                   {navLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className="text-lg font-medium hover:text-primary transition-colors" onClick={closeMobileMenu}>
+                    <Link key={link.href} href={link.href} className="text-lg font-medium hover:text-primary transition-colors" onClick={() => setIsMobileMenuOpen(false)}>
                       {link.label}
                     </Link>
                   ))}
