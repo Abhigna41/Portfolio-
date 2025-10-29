@@ -49,12 +49,36 @@ export const PROJECTS = [
     ]
   },
   {
-    title: 'Secure Data Sharing',
+    title: 'Secure Data Sharing System',
     slug: 'project-two',
-    description: 'Secure Data Sharing System is a Flask web app that secures text and files with attribute-based encryption. It combines AES/RSA hybrid cryptography with policy-driven access, storing encrypted data in Firebase Firestore. The dashboard handles encryption/decryption, policy tests, and user/attribute management. I built the full stack, added automated tests, and hardened the repo for portfolio use.',
-    tech: ['Python', 'HTML', 'Firebase','Pychrotodome'],
+    description: 'A Python Flask web app that enables secure text and file sharing through policy-based access control and hybrid cryptography.',
+    tech: ['Python', 'Flask', 'Jinja2', 'Bootstrap', 'PyCryptodome', 'Charm CP-ABE', 'Firebase Admin SDK', 'Git & GitHub'],
     image: 'project-2',
     link: '#',
+    projectOverview: 'Developed a Python Flask web application that enables secure text and file sharing through policy-based access control, enforced using hybrid cryptography and Firebase-backed storage. The system ensures that only authorized users, defined by specific attributes or roles, can access sensitive data while maintaining end-to-end confidentiality.',
+    problemStatement: {
+      title: 'Problem Statement (Real-World Context)',
+      content: 'In many organizations, sharing confidential information securely is challenging, especially when user access must depend on dynamic roles or attributes rather than fixed permissions. Traditional trust-based or manual sharing methods often expose sensitive data to unauthorized users or create operational bottlenecks in managing access control.'
+    },
+    solutionDeveloped: {
+      title: 'Solution Developed',
+      content: 'Designed and implemented a Ciphertext-Policy Attribute-Based Encryption (CP-ABE)–inspired architecture that combines AES and RSA encryption to protect data. The encrypted files and associated metadata are stored in Firebase Firestore, and decryption is permitted only after validating attribute-based access policies. The system also features a responsive dashboard for users and administrators to manage data, keys, and access efficiently.'
+    },
+    keyFeatures: [
+      'Dashboard for encrypting/decrypting text and files with attribute-based policies',
+      'User & Attribute Management with delegated key update functionality',
+      'Admin Tools for activity logging and real-time policy verification',
+      'Automated Testing & Health Checks for reliability',
+      'Clean and Responsive UI built using Bootstrap and Jinja2 templates',
+    ],
+    impact: [
+      'This project demonstrates a production-grade workflow for fine-grained, cryptographically enforced data sharing, strengthening my expertise in cryptographic engineering, secure coding practices, and deployment automation. It showcases the application of hybrid encryption and dynamic policy management in real-world data protection scenarios.',
+    ],
+    futureEnhancements: [
+      'Integrate full CP-ABE key generation and delegation in production environments',
+      'Implement role-based analytics dashboards and automated notifications',
+      'Enhance security and scalability through containerization and CI/CD pipelines',
+    ]
   },
   {
     title: 'Project Three',
