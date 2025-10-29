@@ -66,9 +66,6 @@ export default function ProjectDetailsPage({ params }: { params: { slug: string 
             <div className="md:col-span-2 space-y-6">
               <h2 className="text-2xl font-semibold">About this project</h2>
               <p className="text-muted-foreground text-lg">{project.description}</p>
-              <p className="text-muted-foreground text-lg">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat.
-              </p>
             </div>
             <div>
               <h2 className="text-2xl font-semibold mb-4">Technologies Used</h2>
