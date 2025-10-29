@@ -44,7 +44,7 @@ export default function HeroSection() {
             <Link href="#about">About me</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="/resume.pdf" download>Download CV <ArrowDown className="ml-2 h-4 w-4" /></a>
+            <a href="https://drive.google.com/file/d/17McH-XCiYsjCvn2Slv0b7FmH24PLV44o/view?usp=sharing" target="_blank" rel="noopener noreferrer">Download CV <ArrowDown className="ml-2 h-4 w-4" /></a>
           </Button>
         </div>
       </div>
