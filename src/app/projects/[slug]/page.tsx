@@ -98,15 +98,6 @@ export default function ProjectDetailsPage({ params }: { params: { slug: string 
                 </Card>
               )}
 
-              {project.link && (
-                <Button asChild className="w-full" size="lg">
-                  <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-5 w-5" />
-                    View Project
-                  </Link>
-                </Button>
-              )}
-
               <Card>
                 <CardHeader>
                   <CardTitle>Technologies Used</CardTitle>
