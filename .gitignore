@@ -1,18 +1,17 @@
-
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+node_modules/
+.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage/
 
 # next.js
-/.next/
-/out/
-/build
+.next/
+out/
+build/
 
 # misc
 .DS_Store
@@ -30,15 +29,20 @@ yarn-error.log*
 .env.production.local
 
 # vercel
-.vercel
+.vercel/
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
 
-# studio
-.idx
-.firebase
+# firebase
+.firebase/
+firebase.json.local
+database-debug.log
+
+# IDX
+.idx/
 .modified
+
+# package-lock.json
 package-lock.json
-next.config.mjs
