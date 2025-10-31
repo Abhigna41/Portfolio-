@@ -4,65 +4,65 @@
 
 @layer base {
   :root {
-    --background: 60 56% 91%; /* Warm Beige */
-    --foreground: 30 29% 23%; /* Earthy Brown */
+    --background: 40 100% 97%; /* Cream */
+    --foreground: 175 41% 15%; /* Dark Teal */
  
-    --card: 60 56% 95%; /* Lighter Beige for cards */
-    --card-foreground: 30 29% 23%;
+    --card: 40 100% 99%; /* Lighter Cream for cards */
+    --card-foreground: 175 41% 15%;
  
-    --popover: 60 56% 95%;
-    --popover-foreground: 30 29% 23%;
+    --popover: 40 100% 99%;
+    --popover-foreground: 175 41% 15%;
  
-    --primary: 151 49% 35%; /* Forest Green */
-    --primary-foreground: 60 56% 95%; /* Light beige for text on primary */
+    --primary: 330 84% 69%; /* Vibrant Pink */
+    --primary-foreground: 330 100% 10%; /* Dark text for on-pink elements */
  
-    --secondary: 30 29% 30%; /* Slightly darker Earthy Brown */
-    --secondary-foreground: 60 56% 95%;
+    --secondary: 175 31% 35%; /* Muted Teal */
+    --secondary-foreground: 40 100% 97%;
  
-    --muted: 60 20% 85%;
-    --muted-foreground: 30 15% 40%;
+    --muted: 40 50% 94%;
+    --muted-foreground: 175 20% 40%;
  
-    --accent: 60 30% 88%;
-    --accent-foreground: 151 49% 35%;
+    --accent: 40 50% 90%;
+    --accent-foreground: 330 84% 40%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 60 20% 80%;
-    --input: 60 20% 80%;
-    --ring: 151 49% 35%;
+    --border: 40 30% 88%;
+    --input: 40 30% 88%;
+    --ring: 330 84% 69%;
  
     --radius: 0.5rem;
   }
  
   .dark {
-    --background: 30 29% 23%; /* Earthy Brown */
-    --foreground: 60 56% 91%; /* Warm Beige */
+    --background: 175 41% 15%; /* Dark Teal */
+    --foreground: 40 100% 97%; /* Cream */
  
-    --card: 30 29% 28%;
-    --card-foreground: 60 56% 91%;
+    --card: 175 41% 20%;
+    --card-foreground: 40 100% 97%;
  
-    --popover: 30 29% 20%;
-    --popover-foreground: 60 56% 91%;
+    --popover: 175 41% 12%;
+    --popover-foreground: 40 100% 97%;
  
-    --primary: 151 49% 35%; /* Forest Green */
-    --primary-foreground: 60 56% 95%;
+    --primary: 330 84% 69%; /* Vibrant Pink */
+    --primary-foreground: 330 100% 10%;
  
-    --secondary: 60 56% 91%; /* Warm Beige for secondary elements */
-    --secondary-foreground: 30 29% 23%;
+    --secondary: 40 100% 97%; /* Cream for secondary elements */
+    --secondary-foreground: 175 41% 15%;
  
-    --muted: 30 29% 33%;
-    --muted-foreground: 60 20% 70%;
+    --muted: 175 41% 25%;
+    --muted-foreground: 40 20% 70%;
  
-    --accent: 30 29% 33%;
-    --accent-foreground: 60 56% 91%;
+    --accent: 175 41% 25%;
+    --accent-foreground: 40 100% 97%;
  
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 30 29% 33%;
-    --input: 30 29% 33%;
-    --ring: 151 49% 35%;
+    --border: 175 41% 25%;
+    --input: 175 41% 25%;
+    --ring: 330 84% 69%;
   }
 }
  
