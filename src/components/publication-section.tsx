@@ -7,6 +7,7 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import Reveal from './reveal';
+import { motion } from 'framer-motion';
 
 export default function PublicationSection() {
   return (
@@ -17,28 +18,30 @@ export default function PublicationSection() {
           <div className="max-w-4xl mx-auto space-y-8">
             {PUBLICATIONS.map((pub, index) => (
               <Reveal key={index} delay={index * 0.1}>
-                <Card className="transition-shadow duration-300 hover:shadow-lg hover:scale-105">
-                  <CardHeader>
-                    <CardTitle className="text-xl">{pub.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground mb-2">{pub.authors}</p>
-                    <p className="text-sm italic">{pub.journal}</p>
-                  </CardContent>
-                  <CardFooter className="flex justify-between">
-                     <Button asChild variant="link" className="p-0 h-auto">
-                       <Link href={`/publications/${pub.slug}`}>
-                         View Details <ArrowRight className="ml-2 h-4 w-4" />
-                       </Link>
-                     </Button>
-                     <Button asChild>
-                       <Link href={pub.link} target="_blank" rel="noopener noreferrer">
-                         <ExternalLink className="mr-2 h-4 w-4" />
-                         View Publication
-                       </Link>
-                     </Button>
-                  </CardFooter>
-                </Card>
+                <motion.div whileHover={{ scale: 1.05 }}>
+                  <Card className="transition-shadow duration-300 hover:shadow-lg">
+                    <CardHeader>
+                      <CardTitle className="text-xl">{pub.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground mb-2">{pub.authors}</p>
+                      <p className="text-sm italic">{pub.journal}</p>
+                    </CardContent>
+                    <CardFooter className="flex justify-between">
+                       <Button asChild variant="link" className="p-0 h-auto">
+                         <Link href={`/publications/${pub.slug}`}>
+                           View Details <ArrowRight className="ml-2 h-4 w-4" />
+                         </Link>
+                       </Button>
+                       <Button asChild>
+                         <Link href={pub.link} target="_blank" rel="noopener noreferrer">
+                           <ExternalLink className="mr-2 h-4 w-4" />
+                           View Publication
+                         </Link>
+                       </Button>
+                    </CardFooter>
+                  </Card>
+                </motion.div>
               </Reveal>
             ))}
           </div>

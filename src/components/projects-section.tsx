@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Reveal from './reveal';
+import { motion } from 'framer-motion';
 
 export default function ProjectsSection() {
   return (
@@ -22,37 +23,39 @@ export default function ProjectsSection() {
               const projectImage = PlaceHolderImages.find(p => p.id === project.image);
               return (
                 <Reveal key={project.title} delay={index * 0.1}>
-                  <Card className="group flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl bg-background text-foreground h-full">
-                    {projectImage && (
-                      <div className="relative w-full aspect-[4/3]">
-                        <Image
-                          src={projectImage.imageUrl}
-                          alt={project.title}
-                          fill
-                          className="object-cover"
-                          data-ai-hint={projectImage.imageHint}
-                        />
-                      </div>
-                    )}
-                    <CardHeader>
-                      <CardTitle>{project.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                      <CardDescription>{project.description}</CardDescription>
-                      <div className="flex flex-wrap gap-2 mt-4">
-                        {project.tech.map((tech) => (
-                          <Badge key={tech} variant="secondary">{tech}</Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                    <CardFooter>
-                      <Button asChild variant="link" className="p-0 h-auto">
-                        <Link href={`/projects/${project.slug}`}>
-                          View Details <ArrowRight className="ml-2 h-4 w-4" />
-                        </Link>
-                      </Button>
-                    </CardFooter>
-                  </Card>
+                  <motion.div whileHover={{ scale: 1.05 }} className="h-full">
+                    <Card className="group flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl bg-background text-foreground h-full">
+                      {projectImage && (
+                        <div className="relative w-full aspect-[4/3]">
+                          <Image
+                            src={projectImage.imageUrl}
+                            alt={project.title}
+                            fill
+                            className="object-cover"
+                            data-ai-hint={projectImage.imageHint}
+                          />
+                        </div>
+                      )}
+                      <CardHeader>
+                        <CardTitle>{project.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent className="flex-grow">
+                        <CardDescription>{project.description}</CardDescription>
+                        <div className="flex flex-wrap gap-2 mt-4">
+                          {project.tech.map((tech) => (
+                            <Badge key={tech} variant="secondary">{tech}</Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                      <CardFooter>
+                        <Button asChild variant="link" className="p-0 h-auto">
+                          <Link href={`/projects/${project.slug}`}>
+                            View Details <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  </motion.div>
                 </Reveal>
               )
             })}
