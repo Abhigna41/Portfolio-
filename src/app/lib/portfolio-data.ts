@@ -14,7 +14,7 @@ export const SKILLS = [
 
 export const PROJECTS = [
   {
-    title: 'Data Portal for IoT Devices',
+    title: 'Data Portal',
     slug: 'data-portal-iot',
     description: 'A web-based portal for visualizing and managing data from IoT sensors, providing real-time insights and control.',
     tech: ['React', 'Next.js', 'Firebase'],
