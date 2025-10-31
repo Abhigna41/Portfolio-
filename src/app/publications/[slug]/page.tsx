@@ -9,7 +9,8 @@ export function generateStaticParams() {
   }));
 }
 
-export default function PublicationDetailPage({ params: { slug } }: { params: { slug: string } }) {
+export default function PublicationDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const pub = PUBLICATIONS.find((p) => p.slug === slug);
 
   if (!pub) {

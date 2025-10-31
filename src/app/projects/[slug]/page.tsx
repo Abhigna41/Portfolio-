@@ -10,7 +10,8 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectDetailPage({ params: { slug } }: { params: { slug: string } }) {
+export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const project = PROJECTS.find((p) => p.slug === slug);
 
   if (!project) {
