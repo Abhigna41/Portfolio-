@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Code2, Menu } from 'lucide-react';
 import { Button } from './ui/button';
 import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
+import { ThemeToggle } from './theme-toggle';
 
 const navLinks = [
   { href: '/#about', label: 'About' },
@@ -44,6 +45,7 @@ export default function Header() {
               </Link>
             ))}
           </nav>
+          <ThemeToggle />
           <div className="md:hidden">
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>

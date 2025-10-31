@@ -101,5 +101,5 @@ export const SOCIAL_LINKS = [
 export const CONTACT_DETAILS = [
   { icon: Mail, text: 'abhignagunda1@gmail.com', href: 'mailto:abhignagunda1@gmail.com' },
   { icon: Phone, text: '+91 9347653053', href: 'tel:+919347653053' },
-  { icon: MapPin, text: 'Hyderabad, India', href: '#' },
+  { icon: MapPin, text: 'Hyderabad, India', href: 'https://maps.app.goo.gl/jEtgFwdjcxDg1yDDA' },
 ];
