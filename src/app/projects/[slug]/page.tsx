@@ -1,7 +1,4 @@
 
-'use client';
-
-import { useParams } from 'next/navigation';
 import { PROJECTS } from '@/app/lib/portfolio-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,9 +8,14 @@ import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-export default function ProjectDetailPage() {
-  const params = useParams();
-  const slug = params.slug;
+export function generateStaticParams() {
+  return PROJECTS.map((project) => ({
+    slug: project.slug,
+  }));
+}
+
+export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
 
   const project = PROJECTS.find((p) => p.slug === slug);
   const projectImage = PlaceHolderImages.find(p => p.id === project?.image);
