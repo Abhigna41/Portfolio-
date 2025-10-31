@@ -42,11 +42,11 @@ export default function ProjectsSection() {
                       ))}
                     </div>
                   </CardContent>
-                  <CardFooter className="gap-4">
+                  <CardFooter>
                     <Button asChild>
-                      <Link href={`/projects/${project.slug}`}>
+                      <Link href={project.link} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="mr-2 h-4 w-4" />
-                        View Details
+                        View Project
                       </Link>
                     </Button>
                   </CardFooter>
