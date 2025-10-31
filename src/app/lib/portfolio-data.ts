@@ -4,11 +4,14 @@ import { Github, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 export const SKILLS = [
   { name: 'HTML', icon: 'html', color: '#E34F26' },
   { name: 'CSS', icon: 'css', color: '#1572B6' },
-  { name: 'MYSQL', icon: 'mysql', color: '#4479A1' },
+  { name: 'JavaScript', icon: 'javascript', color: '#F7DF1E' },
+  { name: 'TypeScript', icon: 'typescript', color: '#3178C6' },
+  { name: 'React', icon: 'react', color: '#61DAFB' },
+  { name: 'Next.js', icon: 'nextjs', color: '#000000' },
+  { name: 'Tailwind CSS', icon: 'tailwind', color: '#06B6D4' },
   { name: 'Python', icon: 'python', color: '#3776AB' },
   { name: 'Firebase', icon: 'firebase', color: '#FFCA28' },
-  { name: 'JavaScript', icon: 'javascript', color: '#F7DF1E' },
-  { name: 'React', icon: 'react', color: '#61DAFB' },
+  { name: 'MYSQL', icon: 'mysql', color: '#4479A1' },
   { name: 'Git', icon: 'git', color: '#F05032' },
 ];
 

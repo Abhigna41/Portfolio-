@@ -2,7 +2,7 @@
 'use client';
 
 import { FaHtml5, FaCss3Alt, FaPython, FaReact, FaJs, FaGitAlt } from 'react-icons/fa';
-import { SiFirebase, SiMysql } from 'react-icons/si';
+import { SiFirebase, SiMysql, SiTypescript, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
 import { Github, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 
 const iconMap: { [key: string]: React.ElementType } = {
@@ -20,6 +20,9 @@ const iconMap: { [key: string]: React.ElementType } = {
   mail: Mail,
   phone: Phone,
   mapPin: MapPin,
+  typescript: SiTypescript,
+  nextjs: SiNextdotjs,
+  tailwind: SiTailwindcss,
 };
 
 interface IconProps {
