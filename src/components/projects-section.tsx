@@ -20,13 +20,12 @@ export default function ProjectsSection() {
             return (
               <Card key={project.title} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                 {projectImage && (
-                  <div className="aspect-w-3 aspect-h-2">
+                  <div className="relative w-full aspect-[4/3]">
                     <Image
                       src={projectImage.imageUrl}
                       alt={project.title}
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                       data-ai-hint={projectImage.imageHint}
                     />
                   </div>
