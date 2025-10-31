@@ -1,3 +1,4 @@
+
 'use client';
 
 import { PROJECTS } from '@/app/lib/portfolio-data';
@@ -6,7 +7,7 @@ import Image from 'next/image';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import { ExternalLink } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function ProjectsSection() {
@@ -43,10 +44,9 @@ export default function ProjectsSection() {
                     </div>
                   </CardContent>
                   <CardFooter>
-                    <Button asChild>
-                      <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        View Project
+                    <Button asChild variant="link" className="p-0 h-auto">
+                      <Link href={`/projects/${project.slug}`}>
+                        View Details <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
                   </CardFooter>
