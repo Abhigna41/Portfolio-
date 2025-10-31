@@ -13,8 +13,8 @@
     --popover: 40 100% 99%;
     --popover-foreground: 175 41% 15%;
  
-    --primary: 330 84% 69%; /* Vibrant Pink */
-    --primary-foreground: 330 100% 10%; /* Dark text for on-pink elements */
+    --primary: 33 91% 70%; /* Soft Peach */
+    --primary-foreground: 33 100% 10%; /* Dark text for on-peach elements */
  
     --secondary: 175 31% 35%; /* Muted Teal */
     --secondary-foreground: 40 100% 97%;
@@ -23,14 +23,14 @@
     --muted-foreground: 175 20% 40%;
  
     --accent: 40 50% 90%;
-    --accent-foreground: 330 84% 40%;
+    --accent-foreground: 33 91% 40%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
  
     --border: 40 30% 88%;
     --input: 40 30% 88%;
-    --ring: 330 84% 69%;
+    --ring: 33 91% 70%;
  
     --radius: 0.5rem;
   }
@@ -45,8 +45,8 @@
     --popover: 175 41% 12%;
     --popover-foreground: 40 100% 97%;
  
-    --primary: 330 84% 69%; /* Vibrant Pink */
-    --primary-foreground: 330 100% 10%;
+    --primary: 33 91% 70%; /* Soft Peach */
+    --primary-foreground: 33 100% 10%;
  
     --secondary: 40 100% 97%; /* Cream for secondary elements */
     --secondary-foreground: 175 41% 15%;
@@ -62,7 +62,7 @@
  
     --border: 175 41% 25%;
     --input: 175 41% 25%;
-    --ring: 330 84% 69%;
+    --ring: 33 91% 70%;
   }
 }
  
