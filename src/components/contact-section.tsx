@@ -58,11 +58,11 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-20 md:py-32">
+    <section id="contact" className="py-24 md:py-40">
       <div className="container mx-auto px-4 md:px-6">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Contact Me</h2>
-          <div className="max-w-5xl mx-auto p-6 md:p-12 rounded-lg shadow-lg bg-card text-card-foreground">
+          <div className="max-w-7xl mx-auto p-6 md:p-12 rounded-lg shadow-lg bg-card text-card-foreground">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h3 className="text-2xl font-semibold mb-4">Get in Touch</h3>
