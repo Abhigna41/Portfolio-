@@ -63,7 +63,7 @@ export const PUBLICATIONS = [
     authors: 'Naga Abhigna Gunda, et al.',
     journal: '2025 5th International Conference on Intelligent Technologies (CONIT)',
     paperID:'2622',
-    link: 'https://ieeexplore.ieee.org/',
+    link: 'https://ieeexplore.ieee.org/document/11167505',
     abstract: 'This paper proposes a novel key update mechanism to enhance security in industrial cloud environments. Our method ensures secure data sharing and efficient access control, addressing the vulnerabilities present in current systems. We demonstrate through simulations that our approach significantly reduces overhead while maintaining a high level of security.'
   },
   
