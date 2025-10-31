@@ -1,16 +1,17 @@
 
-import { Github, Linkedin, Twitter, Code, Database, Cloud, Paintbrush, Mail, Phone, MapPin, Braces, Wind } from 'lucide-react';
+import { Github, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { FaHtml5, FaCss3Alt, FaPython, FaReact, FaJs, FaGitAlt } from 'react-icons/fa';
+import { SiFirebase, SiMysql } from 'react-icons/si';
 
 export const SKILLS = [
-  { name: 'HTML', icon: Code },
-  { name: 'CSS', icon: Paintbrush },
-  { name: 'MYSQL', icon: Database },
-  { name: 'Python', icon: Code },
-  { name: 'Firebase', icon: Database },
-  { name: 'JavaScript', icon: Braces },
-  { name: 'React', icon: Braces },
-  { name: 'Git', icon: Github },
-
+  { name: 'HTML', icon: FaHtml5 },
+  { name: 'CSS', icon: FaCss3Alt },
+  { name: 'MYSQL', icon: SiMysql },
+  { name: 'Python', icon: FaPython },
+  { name: 'Firebase', icon: SiFirebase },
+  { name: 'JavaScript', icon: FaJs },
+  { name: 'React', icon: FaReact },
+  { name: 'Git', icon: FaGitAlt },
 ];
 
 export const PROJECTS = [
