@@ -41,6 +41,19 @@ export const PROJECTS = [
     features: ['Attribute-Based Encryption', 'Fine-grained Access Control', 'Efficient Key Revocation', 'Data Integrity Checks'],
     impact: 'The solution was published in an IEEE conference and provided a provably secure method for data sharing, significantly enhancing the security posture for organizations handling sensitive information in the cloud.',
   },
+  {
+    title: 'Portfolio',
+    slug: 'portfolio-project',
+    description: 'A personal portfolio website to showcase my skills, projects, and publications in a clean and modern interface.',
+    tech: ['Next.js', 'Tailwind CSS', 'ShadCN UI', 'Firebase'],
+    image: 'project-3',
+    link: '#',
+    overview: 'Designed and developed a personal portfolio to serve as a central hub for my professional work. The site is built with modern web technologies to be fast, responsive, and easy to navigate.',
+    problem: 'I needed a professional and visually appealing online presence to share with recruiters and colleagues that could effectively showcase my technical skills and project experience.',
+    solution: 'I created a fully responsive website using Next.js for its performance and SEO capabilities. Styling was handled with Tailwind CSS for rapid UI development, and ShadCN UI provided a set of accessible and reusable components. Firebase is used for hosting and potential future backend features like a contact form.',
+    features: ['Responsive Design', 'Project Detail Pages', 'Skills Showcase', 'Publications Section', 'Dark/Light Mode'],
+    impact: 'The portfolio has provided me with a polished and professional platform to present my work, leading to increased visibility and positive feedback from peers and potential employers.',
+  }
 ];
 
 export const PUBLICATIONS = [
