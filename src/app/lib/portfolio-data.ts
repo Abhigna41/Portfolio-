@@ -4,14 +4,14 @@ import { FaHtml5, FaCss3Alt, FaPython, FaReact, FaJs, FaGitAlt } from 'react-ico
 import { SiFirebase, SiMysql } from 'react-icons/si';
 
 export const SKILLS = [
-  { name: 'HTML', icon: FaHtml5 },
-  { name: 'CSS', icon: FaCss3Alt },
-  { name: 'MYSQL', icon: SiMysql },
-  { name: 'Python', icon: FaPython },
-  { name: 'Firebase', icon: SiFirebase },
-  { name: 'JavaScript', icon: FaJs },
-  { name: 'React', icon: FaReact },
-  { name: 'Git', icon: FaGitAlt },
+  { name: 'HTML', icon: FaHtml5, color: '#E34F26' },
+  { name: 'CSS', icon: FaCss3Alt, color: '#1572B6' },
+  { name: 'MYSQL', icon: SiMysql, color: '#4479A1' },
+  { name: 'Python', icon: FaPython, color: '#3776AB' },
+  { name: 'Firebase', icon: SiFirebase, color: '#FFCA28' },
+  { name: 'JavaScript', icon: FaJs, color: '#F7DF1E' },
+  { name: 'React', icon: FaReact, color: '#61DAFB' },
+  { name: 'Git', icon: FaGitAlt, color: '#F05032' },
 ];
 
 export const PROJECTS = [
