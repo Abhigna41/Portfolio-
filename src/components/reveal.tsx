@@ -11,12 +11,14 @@ interface RevealProps {
 
 export default function Reveal({ children, delay = 0 }: RevealProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false });
   const mainControls = useAnimation();
 
   useEffect(() => {
     if (isInView) {
       mainControls.start('visible');
+    } else {
+      mainControls.start('hidden');
     }
   }, [isInView, mainControls]);
 
