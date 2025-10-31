@@ -18,7 +18,7 @@ export default function ProjectsSection() {
           {PROJECTS.map((project, index) => {
             const projectImage = PlaceHolderImages.find(p => p.id === project.image);
             return (
-              <Card key={project.title} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+              <Card key={project.title} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl bg-card">
                 {projectImage && (
                   <div className="relative w-full aspect-[4/3]">
                     <Image

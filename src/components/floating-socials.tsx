@@ -15,7 +15,7 @@ export default function FloatingSocials() {
         {socials.map((social) => (
           <Button key={social.name} asChild size="icon" className="group rounded-full text-primary-foreground bg-primary hover:bg-primary/90">
             <Link href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
-              <social.icon className="h-5 w-5 transition-transform duration-300 group-hover:animate-jiggle" />
+              <social.icon className="h-5 w-5 transition-transform duration-300 group-hover:scale-125" />
             </Link>
           </Button>
         ))}
