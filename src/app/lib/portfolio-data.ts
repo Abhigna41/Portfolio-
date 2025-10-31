@@ -94,17 +94,13 @@ export const PROJECTS = [
 
 export const PUBLICATIONS = [
   {
-    title: 'Decentralized Data Integrity using Blockchain for Secure Data Sharing',
+    title: 'Efficient Key Update for Secure Data sharing in Industrial Cloud Access Control.',
     authors: 'Naga Abhigna Gunda, et al.',
-    journal: 'International Journal of Advanced Research in Computer Science, 2023',
+    journal: '2025 5th International Conference on Intelligent Technologies (CONIT)',
+    paperID:'2622',
     link: '#',
   },
-  {
-    title: 'A Novel Approach to AI-Powered Threat Detection in IoT Networks',
-    authors: 'Naga Abhigna Gunda, et al.',
-    journal: 'IEEE Conference on Security and Privacy, 2024',
-    link: '#',
-  },
+  
 ];
 
 export const SOCIAL_LINKS = [
