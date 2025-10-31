@@ -58,75 +58,77 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <Card className="animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-          <CardContent className="p-6 md:p-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Contact Me</h2>
-            <div className="grid md:grid-cols-2 gap-12">
-              <div>
-                <h3 className="text-2xl font-semibold mb-4">Get in Touch</h3>
-                <p className="text-muted-foreground mb-8">
-                  I'm open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out using the form or through my contact details.
-                </p>
-                <div className="space-y-4">
-                  {CONTACT_DETAILS.map((detail) => (
-                    <a key={detail.text} href={detail.href} className="flex items-center gap-4 group">
-                      <detail.icon className="h-6 w-6 text-primary" />
-                      <span className="text-muted-foreground group-hover:text-foreground transition-colors">{detail.text}</span>
-                    </a>
-                  ))}
+        <div className="animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+          <Card>
+            <CardContent className="p-6 md:p-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Contact Me</h2>
+              <div className="grid md:grid-cols-2 gap-12">
+                <div>
+                  <h3 className="text-2xl font-semibold mb-4">Get in Touch</h3>
+                  <p className="text-muted-foreground mb-8">
+                    I'm open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out using the form or through my contact details.
+                  </p>
+                  <div className="space-y-4">
+                    {CONTACT_DETAILS.map((detail) => (
+                      <a key={detail.text} href={detail.href} className="flex items-center gap-4 group">
+                        <detail.icon className="h-6 w-6 text-primary" />
+                        <span className="text-muted-foreground group-hover:text-foreground transition-colors">{detail.text}</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <Form {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Name</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Your Name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                              <Input type="email" placeholder="your.email@example.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="message"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Message</FormLabel>
+                            <FormControl>
+                              <Textarea placeholder="Your message..." {...field} rows={5} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <Button type="submit" disabled={!firestore || form.formState.isSubmitting} className="w-full">
+                        {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
+                      </Button>
+                    </form>
+                  </Form>
                 </div>
               </div>
-              <div>
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Name</FormLabel>
-                          <FormControl>
-                            <Input placeholder="Your Name" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email</FormLabel>
-                          <FormControl>
-                            <Input type="email" placeholder="your.email@example.com" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Message</FormLabel>
-                          <FormControl>
-                            <Textarea placeholder="Your message..." {...field} rows={5} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <Button type="submit" disabled={!firestore || form.formState.isSubmitting} className="w-full">
-                      {form.formState.isSubmitting ? 'Sending...' : 'Send Message'}
-                    </Button>
-                  </form>
-                </Form>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </section>
   );
