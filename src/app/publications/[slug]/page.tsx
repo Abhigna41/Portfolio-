@@ -1,4 +1,6 @@
 
+'use client';
+
 import { PUBLICATIONS } from '@/app/lib/portfolio-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -11,8 +13,9 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function PublicationDetailPage({ params }: { params: { slug: string } }) {
-  const pub = PUBLICATIONS.find((p) => p.slug === params.slug);
+export default function PublicationDetailPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  const pub = PUBLICATIONS.find((p) => p.slug === slug);
 
   if (!pub) {
     return (
