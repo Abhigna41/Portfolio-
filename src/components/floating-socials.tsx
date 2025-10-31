@@ -5,7 +5,6 @@ import Icon from './icon-map';
 import { SOCIAL_LINKS } from '@/app/lib/portfolio-data';
 
 export default function FloatingSocials() {
-
   return (
     <div className="fixed right-4 bottom-4 z-50">
       <div className="flex flex-col gap-2">
