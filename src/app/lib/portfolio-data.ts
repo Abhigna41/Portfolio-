@@ -22,7 +22,7 @@ export const PROJECTS = [
     link: '#',
     overview: 'The Data Portal is a real-time web application developed to simplify and automate manual data entry tasks for small businesses. This project was inspired by a real-world challenge faced by my father, who manages company records using large Excel sheets. To record every transaction, he had to manually enter multiple details daily — a time-consuming and error-prone process. To address this, I designed and built a custom online data management system that allows him to input data through a simple, intelligent web interface. The system automatically fills related fields, securely stores all entries, and can be accessed anytime through a hosted web application.',
     problem: 'My fathers business relied heavily on Excel sheets for maintaining records. Each entry required him to fill out numerous fields manually, even when many values were repetitive or dependent on others. While tools like Google Forms seemed like a potential solution, they lacked customization — and even with App Script, hosting was limited to local networks. This limitation made it impossible for him to access the form remotely or from other devices.',
-    solution: 'To overcome these challenges, I built a custom Data Portal from scratch using Python Flask and MySQL, with a user-friendly interface powered by HTML, CSS, and JavaScript. I first extracted and structured the existing Excel data in SQL Workbench. Developed a Flask-based backend to manage routes such as Home, Download, and View. Implemented logic for auto-filling dependent fields (e.g., selecting an item automatically populates fixed details like toll numbers or rates). Added secure login authentication to ensure that only authorized users — like my father — can access or modify the data. Deployed the system online using Render for web hosting and Railway for backend and database hosting, making it fully accessible remotely.',
+    solution: 'To overcome these challenges, I built a custom DataPortal from scratch using Python Flask and MySQL, with a user-friendly interface powered by HTML, CSS, and JavaScript. I first extracted and structured the existing Excel data in SQL Workbench. Developed a Flask-based backend to manage routes such as Home, Download, and View. Implemented logic for auto-filling dependent fields (e.g., selecting an item automatically populates fixed details like toll numbers or rates). Added secure login authentication to ensure that only authorized users — like my father — can access or modify the data. Deployed the system online using Render for web hosting and Railway for backend and database hosting, making it fully accessible remotely.',
     features: ['Automated Data Entry', 'Secure Login', 'Real-Time Access', 'Alerting System'],
     impact: 'The portal enabled the client to reduce operational response times by 60% and provided critical insights that led to a 15% improvement in device efficiency.',
     futureenhancements: [
@@ -84,13 +84,13 @@ export const PUBLICATIONS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { name: 'GitHub', icon: Github, url: 'https://github.com' },
-  { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com' },
-  { name: 'Twitter', icon: Twitter, url: 'https://twitter.com' },
+  { name: 'GitHub', icon: 'github', url: 'https://github.com' },
+  { name: 'LinkedIn', icon: 'linkedin', url: 'https://linkedin.com' },
+  { name: 'Twitter', icon: 'twitter', url: 'https://twitter.com' },
 ];
 
 export const CONTACT_DETAILS = [
-  { icon: Mail, text: 'abhignagunda1@gmail.com', href: 'mailto:abhignagunda1@gmail.com' },
-  { icon: Phone, text: '+91 9347653053', href: 'tel:+919347653053' },
-  { icon: MapPin, text: 'Hyderabad, India', href: 'https://maps.app.goo.gl/jEtgFwdjcxDg1yDDA' },
+  { icon: 'mail', text: 'abhignagunda1@gmail.com', href: 'mailto:abhignagunda1@gmail.com' },
+  { icon: 'phone', text: '+91 9347653053', href: 'tel:+919347653053' },
+  { icon: 'mapPin', text: 'Hyderabad, India', href: 'https://maps.app.goo.gl/jEtgFwdjcxDg1yDDA' },
 ];

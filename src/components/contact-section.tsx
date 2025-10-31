@@ -12,6 +12,7 @@ import { CONTACT_DETAILS } from '@/app/lib/portfolio-data';
 import { addDocumentNonBlocking } from '@/firebase/non-blocking-updates';
 import { collection, serverTimestamp } from 'firebase/firestore';
 import { useFirestore } from '@/firebase';
+import Icon from './icon-map';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -69,7 +70,7 @@ export default function ContactSection() {
                 <div className="space-y-4">
                   {CONTACT_DETAILS.map((detail) => (
                     <a key={detail.text} href={detail.href} className="flex items-center gap-4 group">
-                      <detail.icon className="h-6 w-6 text-primary" />
+                      <Icon name={detail.icon} className="h-6 w-6 text-primary" />
                       <span className="text-muted-foreground group-hover:text-foreground transition-colors">{detail.text}</span>
                     </a>
                   ))}
