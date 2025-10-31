@@ -12,8 +12,7 @@ export function generateStaticParams() {
 }
 
 export default function PublicationDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  const pub = PUBLICATIONS.find((p) => p.slug === slug);
+  const pub = PUBLICATIONS.find((p) => p.slug === params.slug);
 
   if (!pub) {
     return (
