@@ -5,7 +5,7 @@ import { PUBLICATIONS } from '@/app/lib/portfolio-data';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import { ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 
 export default function PublicationSection() {
   return (
@@ -23,7 +23,12 @@ export default function PublicationSection() {
                   <p className="text-muted-foreground mb-2">{pub.authors}</p>
                   <p className="text-sm italic">{pub.journal}</p>
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex justify-between">
+                   <Button asChild variant="link" className="p-0 h-auto">
+                     <Link href={`/publications/${pub.slug}`}>
+                       Read More <ArrowRight className="ml-2 h-4 w-4" />
+                     </Link>
+                   </Button>
                    <Button asChild>
                      <Link href={pub.link} target="_blank" rel="noopener noreferrer">
                        <ExternalLink className="mr-2 h-4 w-4" />
