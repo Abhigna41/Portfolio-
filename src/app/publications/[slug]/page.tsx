@@ -11,7 +11,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function PublicationDetailPage({ params }: { params: { slug: string } }) {
+export default async function PublicationDetailPage({ params }: { params: { slug: string } }) {
   const pub = PUBLICATIONS.find((p) => p.slug === params.slug);
 
   if (!pub) {
