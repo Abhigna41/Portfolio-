@@ -2,15 +2,6 @@ import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
   /* config options here */
-  async redirects() {
-    return [
-      {
-        source: '/favicon.ico',
-        destination: '/',
-        permanent: false,
-      },
-    ]
-  },
   output: 'export',
   trailingSlash: true,
   typescript: {
