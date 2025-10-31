@@ -1,15 +1,16 @@
 
-import { Github, Linkedin, Twitter, Code, Database, Cloud, Paintbrush, Mail, Phone, MapPin } from 'lucide-react';
+import { Github, Linkedin, Twitter, Code, Database, Cloud, Paintbrush, Mail, Phone, MapPin, Braces, Wind } from 'lucide-react';
 
 export const SKILLS = [
-  { name: 'React', icon: Code },
-  { name: 'Next.js', icon: Code },
-  { name: 'TypeScript', icon: Code },
-  { name: 'Node.js', icon: Code },
+  { name: 'HTML', icon: Code },
+  { name: 'CSS', icon: Paintbrush },
+  { name: 'MYSQL', icon: Database },
   { name: 'Python', icon: Code },
-  { name: 'Databases', icon: Database },
-  { name: 'Cloud Services', icon: Cloud },
-  { name: 'UI/UX Design', icon: Paintbrush },
+  { name: 'Firebase', icon: Database },
+  { name: 'JavaScript', icon: Braces },
+  { name: 'React', icon: Braces },
+  { name: 'Git', icon: Github },
+
 ];
 
 export const PROJECTS = [
@@ -97,7 +98,7 @@ export const SOCIAL_LINKS = [
 ];
 
 export const CONTACT_DETAILS = [
-  { icon: Mail, text: 'hello@example.com', href: 'mailto:hello@example.com' },
-  { icon: Phone, text: '+1 234 567 890', href: 'tel:+1234567890' },
-  { icon: MapPin, text: 'San Francisco, CA', href: '#' },
+  { icon: Mail, text: 'abhignagunda1@gmail.com', href: 'mailto:abhignagunda1@gmail.com' },
+  { icon: Phone, text: '+91 9347653053', href: 'tel:+919347653053' },
+  { icon: MapPin, text: 'Hyderabad, India', href: '#' },
 ];
