@@ -3,7 +3,7 @@
     {
       "id": "about-photo",
       "description": "A placeholder photo for the about me section.",
-      "imageUrl": "https://i.imgur.com/8b1Z9f9.jpeg",
+      "imageUrl": "https://res.cloudinary.com/dxifwkrow/image/upload/v1761887755/1_juih51.jpg",
       "imageHint": "portrait person"
     },
     {
