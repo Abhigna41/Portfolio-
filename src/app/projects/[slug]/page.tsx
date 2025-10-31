@@ -14,9 +14,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-
+export default function ProjectDetailPage({ params: { slug } }: { params: { slug: string } }) {
   const project = PROJECTS.find((p) => p.slug === slug);
   const projectImage = PlaceHolderImages.find(p => p.id === project?.image);
 
