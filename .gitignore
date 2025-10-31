@@ -1,42 +1,49 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Dependencies
+# dependencies
 /node_modules
 /.pnp
 .pnp.js
 
-# Testing
+# testing
 /coverage
 
-# Next.js
+# next.js
 /.next/
 /out/
-
-# Production
 /build
 
-# Misc
+# misc
 .DS_Store
 *.pem
 
-# Debug
+# debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# Local Environment Variables
-.env*.local
-*.env
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
 
 # Firebase
 .firebase/
-database-debug.log
-firestore-debug.log
+firebase-debug.log
+# Important: Caching files for the Emulator Suite.
+# These files can become large and it's not recommended to commit them.
+.cache/
 
-# IDX/Studio environment
+# IDX
 .idx/
-.modified
-
-# Other
 package-lock.json
+.modified
