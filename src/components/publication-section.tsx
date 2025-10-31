@@ -26,7 +26,7 @@ export default function PublicationSection() {
                 <CardFooter className="flex justify-between">
                    <Button asChild variant="link" className="p-0 h-auto">
                      <Link href={`/publications/${pub.slug}`}>
-                       Read More <ArrowRight className="ml-2 h-4 w-4" />
+                       View Details <ArrowRight className="ml-2 h-4 w-4" />
                      </Link>
                    </Button>
                    <Button asChild>
