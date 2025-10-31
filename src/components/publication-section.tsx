@@ -24,7 +24,7 @@ export default function PublicationSection() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild variant="link" className="p-0 h-auto">
-                    <Link href={pub.link} target="_blank" rel="noopener noreferrer">
+                    <Link href={`/publications/${pub.slug}`}>
                       Read More <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
