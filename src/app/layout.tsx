@@ -3,6 +3,8 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { FirebaseClientProvider } from '@/firebase';
 import FloatingSocials from '@/components/floating-socials';
+import Footer from '@/components/footer';
+import Header from '@/components/header';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
@@ -23,8 +25,14 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased bg-background text-foreground" suppressHydrationWarning>
         <FirebaseClientProvider>
-          <FloatingSocials />
-          {children}
+          <div className="flex flex-col min-h-screen">
+            <FloatingSocials />
+            <Header />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </div>
         </FirebaseClientProvider>
         <Toaster />
       </body>
