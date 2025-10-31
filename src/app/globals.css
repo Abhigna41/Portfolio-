@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%; /* Almost White */
-    --foreground: 240 4% 16%; /* Darker Grey for Text */
+    --background: 41 15% 65%; /* Heathered Gray */
+    --foreground: 359 56% 58%; /* Delectable Chestnut Rose */
  
-    --card: 0 0% 95%; /* Light Grey */
-    --card-foreground: 240 4% 16%;
+    --card: 41 15% 70%; /* Lighter Heathered Gray */
+    --card-foreground: 359 56% 58%;
  
-    --popover: 0 0% 95%;
-    --popover-foreground: 240 4% 16%;
+    --popover: 41 15% 70%;
+    --popover-foreground: 359 56% 58%;
  
-    --primary: 41 15% 65%; /* Heathered Gray: #b4a996 */
-    --primary-foreground: 240 4% 10%; /* Dark text on Heathered Gray buttons */
+    --primary: 359 56% 58%;
+    --primary-foreground: 41 15% 95%; /* Very light gray for contrast on rose */
  
-    --secondary: 0 0% 95%; /* Light Grey for Secondary Sections */
-    --secondary-foreground: 240 4% 16%;
+    --secondary: 41 15% 60%; /* Darker Heathered Gray */
+    --secondary-foreground: 359 56% 58%;
  
-    --muted: 240 4% 96%;
-    --muted-foreground: 240 4% 55%; /* Lighter muted foreground */
+    --muted: 41 15% 80%;
+    --muted-foreground: 359 56% 70%; /* Lighter rose for muted text */
  
-    --accent: 41 15% 90%; /* Lighter version of Heathered Gray */
-    --accent-foreground: 240 4% 10%;
+    --accent: 41 15% 75%;
+    --accent-foreground: 359 56% 58%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 240 4% 86%;
-    --input: 240 4% 90%;
-    --ring: 41 15% 55%; /* Darker version of Heathered Gray for rings */
+    --border: 41 15% 55%;
+    --input: 41 15% 60%;
+    --ring: 359 56% 58%;
  
     --radius: 0.5rem;
   }
