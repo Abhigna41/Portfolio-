@@ -18,8 +18,8 @@ export default function PublicationSection() {
           <div className="max-w-4xl mx-auto space-y-8">
             {PUBLICATIONS.map((pub, index) => (
               <Reveal key={index} delay={index * 0.1}>
-                <motion.div whileHover={{ scale: 1.05 }}>
-                  <Card className="transition-shadow duration-300 hover:shadow-lg">
+                <motion.div whileHover={{ scale: 1.02 }}>
+                  <Card>
                     <CardHeader>
                       <CardTitle className="text-xl">{pub.title}</CardTitle>
                     </CardHeader>

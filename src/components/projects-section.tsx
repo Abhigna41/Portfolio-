@@ -24,7 +24,7 @@ export default function ProjectsSection() {
               return (
                 <Reveal key={project.title} delay={index * 0.1}>
                   <motion.div whileHover={{ scale: 1.05 }} className="h-full">
-                    <Card className="group flex flex-col overflow-hidden transition-shadow duration-300 hover:shadow-xl bg-background text-foreground h-full">
+                    <Card className="group flex flex-col overflow-hidden bg-background text-foreground h-full">
                       {projectImage && (
                         <div className="relative w-full aspect-[4/3]">
                           <Image

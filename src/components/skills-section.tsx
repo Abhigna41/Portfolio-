@@ -17,7 +17,7 @@ export default function SkillsSection() {
             {SKILLS.map((skill, index) => (
               <Reveal key={skill.name} delay={index * 0.05}>
                 <motion.div whileHover={{ scale: 1.05 }} className="h-full">
-                  <Card className="group flex flex-col items-center justify-center p-6 text-center transition-shadow duration-300 hover:shadow-xl bg-card h-full">
+                  <Card className="group flex flex-col items-center justify-center p-6 text-center bg-card h-full">
                     <Icon name={skill.icon} className="h-12 w-12 mb-4 transition-transform duration-300 group-hover:animate-jiggle" style={{ color: skill.color }} />
                     <p className="font-semibold">{skill.name}</p>
                   </Card>
