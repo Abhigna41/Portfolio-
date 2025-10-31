@@ -17,7 +17,7 @@ export default function PublicationSection() {
           <div className="max-w-4xl mx-auto space-y-8">
             {PUBLICATIONS.map((pub, index) => (
               <Reveal key={index} delay={index * 0.1}>
-                <Card className="transition-shadow duration-300 hover:shadow-lg">
+                <Card className="transition-shadow duration-300 hover:shadow-lg hover:scale-105">
                   <CardHeader>
                     <CardTitle className="text-xl">{pub.title}</CardTitle>
                   </CardHeader>

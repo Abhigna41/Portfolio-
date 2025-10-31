@@ -22,7 +22,7 @@ export default function ProjectsSection() {
               const projectImage = PlaceHolderImages.find(p => p.id === project.image);
               return (
                 <Reveal key={project.title} delay={index * 0.1}>
-                  <Card className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl bg-background text-foreground h-full">
+                  <Card className="group flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl bg-background text-foreground h-full">
                     {projectImage && (
                       <div className="relative w-full aspect-[4/3]">
                         <Image
