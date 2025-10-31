@@ -1,3 +1,4 @@
+
 'use client';
 
 import { PROJECTS } from '@/app/lib/portfolio-data';
@@ -13,7 +14,7 @@ import { motion } from 'framer-motion';
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="py-16 md:py-24 bg-secondary text-secondary-foreground">
+    <section id="projects" className="py-20 md:py-32 bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 md:px-6">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">My Projects</h2>
