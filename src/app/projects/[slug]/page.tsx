@@ -14,7 +14,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
+export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const project = PROJECTS.find((p) => p.slug === slug);
   const projectImage = PlaceHolderImages.find(p => p.id === project?.image);
