@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 41 15% 65%; /* Heathered Gray */
-    --foreground: 359 56% 58%; /* Delectable Chestnut Rose */
+    --background: 41 15% 95%; /* Very light gray, almost white */
+    --foreground: 41 15% 20%; /* Dark gray for text */
  
-    --card: 41 15% 70%; /* Lighter Heathered Gray */
-    --card-foreground: 359 56% 58%;
+    --card: 41 15% 100%; /* White */
+    --card-foreground: 41 15% 20%;
  
-    --popover: 41 15% 70%;
-    --popover-foreground: 359 56% 58%;
+    --popover: 41 15% 100%;
+    --popover-foreground: 41 15% 20%;
  
-    --primary: 359 56% 58%;
-    --primary-foreground: 41 15% 95%; /* Very light gray for contrast on rose */
+    --primary: 41 15% 65%; /* Heathered Gray */
+    --primary-foreground: 41 15% 10%; /* Dark text on gray */
  
-    --secondary: 41 15% 60%; /* Darker Heathered Gray */
-    --secondary-foreground: 359 56% 58%;
+    --secondary: 41 15% 90%; /* Lighter heathered gray for sections */
+    --secondary-foreground: 41 15% 20%;
  
-    --muted: 41 15% 80%;
-    --muted-foreground: 359 56% 70%; /* Lighter rose for muted text */
+    --muted: 41 15% 85%;
+    --muted-foreground: 41 15% 40%;
  
-    --accent: 41 15% 75%;
-    --accent-foreground: 359 56% 58%;
+    --accent: 41 15% 90%;
+    --accent-foreground: 41 15% 15%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 41 15% 55%;
-    --input: 41 15% 60%;
-    --ring: 359 56% 58%;
+    --border: 41 15% 80%;
+    --input: 41 15% 85%;
+    --ring: 41 15% 65%;
  
     --radius: 0.5rem;
   }
