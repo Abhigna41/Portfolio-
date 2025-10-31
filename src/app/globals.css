@@ -5,16 +5,16 @@
 @layer base {
   :root {
     --background: 0 0% 98%; /* Almost White */
-    --foreground: 240 4% 30%; /* Lighter Grey for Text */
+    --foreground: 240 4% 16%; /* Darker Grey for Text */
  
-    --card: 40 33% 92%; /* Soft Beige */
+    --card: 0 0% 95%; /* Light Grey */
     --card-foreground: 240 4% 16%;
  
-    --popover: 40 33% 92%;
+    --popover: 0 0% 95%;
     --popover-foreground: 240 4% 16%;
  
-    --primary: 240 4% 25%; /* Dark Grey for headings */
-    --primary-foreground: 0 0% 98%;
+    --primary: 41 15% 65%; /* Heathered Gray: #b4a996 */
+    --primary-foreground: 240 4% 10%; /* Dark text on Heathered Gray buttons */
  
     --secondary: 0 0% 95%; /* Light Grey for Secondary Sections */
     --secondary-foreground: 240 4% 16%;
@@ -22,7 +22,7 @@
     --muted: 240 4% 96%;
     --muted-foreground: 240 4% 55%; /* Lighter muted foreground */
  
-    --accent: 240 4% 90%;
+    --accent: 41 15% 90%; /* Lighter version of Heathered Gray */
     --accent-foreground: 240 4% 10%;
  
     --destructive: 0 84.2% 60.2%;
@@ -30,7 +30,7 @@
  
     --border: 240 4% 86%;
     --input: 240 4% 90%;
-    --ring: 240 4% 25%;
+    --ring: 41 15% 55%; /* Darker version of Heathered Gray for rings */
  
     --radius: 0.5rem;
   }
