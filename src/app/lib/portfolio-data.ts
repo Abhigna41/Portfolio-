@@ -53,11 +53,12 @@ export const PROJECTS = [
     tech: ['Next.js', 'Tailwind CSS', 'ShadCN UI', 'Firebase'],
     image: 'project-3',
     link: '#',
-    overview: 'Designed and developed a personal portfolio to serve as a central hub for my professional work. The site is built with modern web technologies to be fast, responsive, and easy to navigate.',
+    overview: "This personal portfolio is a custom-designed platform built from the ground up to showcase my journey as a developer. Leveraging a modern tech stack—including Next.js for server-side rendering, Tailwind CSS for a sleek and responsive design, and ShadCN UI for accessible components—the site provides a fast, interactive, and visually appealing user experience. It serves as a central hub to present my projects, technical skills, and publications, all while demonstrating my ability to create production-quality web applications. Firebase is integrated for hosting and a real-time contact form, ensuring a seamless and professional presentation.",
     problem: 'I needed a professional and visually appealing online presence to share with recruiters and colleagues that could effectively showcase my technical skills and project experience.',
     solution: 'I created a fully responsive website using Next.js for its performance and SEO capabilities. Styling was handled with Tailwind CSS for rapid UI development, and ShadCN UI provided a set of accessible and reusable components. Firebase is used for hosting and potential future backend features like a contact form.',
     features: ['Responsive Design', 'Project Detail Pages', 'Skills Showcase', 'Publications Section', 'Dark/Light Mode'],
     impact: 'The portfolio has provided me with a polished and professional platform to present my work, leading to increased visibility and positive feedback from peers and potential employers.',
+    futureenhancements: []
   }
 ];
 
