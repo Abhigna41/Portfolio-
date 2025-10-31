@@ -13,10 +13,10 @@
     --popover: 40 33% 92%;
     --popover-foreground: 240 4% 16%;
  
-    --primary: 240 4% 60%; /* Lighter Muted Grey for Accents */
-    --primary-foreground: 0 0% 98%;
+    --primary: 40 52% 84%; /* Warm Beige for headings */
+    --primary-foreground: 240 4% 16%;
  
-    --secondary: 40 33% 92%; /* Soft Beige for Secondary Sections */
+    --secondary: 0 0% 95%; /* Light Grey for Secondary Sections */
     --secondary-foreground: 240 4% 16%;
  
     --muted: 240 4% 96%;
@@ -30,7 +30,7 @@
  
     --border: 240 4% 86%;
     --input: 240 4% 90%;
-    --ring: 240 4% 55%;
+    --ring: 40 52% 84%;
  
     --radius: 0.5rem;
   }
@@ -45,7 +45,7 @@
     --popover: 240 4% 10%;
     --popover-foreground: 0 0% 95%;
  
-    --primary: 40 25% 85%; /* Light Beige for Accent */
+    --primary: 40 52% 84%; /* Warm Beige for headings */
     --primary-foreground: 240 4% 10%;
  
     --secondary: 240 4% 15%; /* Darker Grey for Secondary Sections */
@@ -62,7 +62,7 @@
  
     --border: 240 4% 20%;
     --input: 240 4% 20%;
-    --ring: 40 25% 85%;
+    --ring: 40 52% 84%;
   }
 }
  
