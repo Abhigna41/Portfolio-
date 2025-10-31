@@ -1,3 +1,4 @@
+'use client';
 
 import { PUBLICATIONS } from '@/app/lib/portfolio-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -5,13 +6,15 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft, BookOpen, ExternalLink } from 'lucide-react';
 
-export function generateStaticParams() {
-  return PUBLICATIONS.map((pub) => ({
-    slug: pub.slug,
-  }));
-}
+// generateStaticParams is not compatible with 'use client'
+// We will remove it for now to fix the build.
+// export function generateStaticParams() {
+//   return PUBLICATIONS.map((pub) => ({
+//     slug: pub.slug,
+//   }));
+// }
 
-export default async function PublicationDetailPage({ params }: { params: { slug: string } }) {
+export default function PublicationDetailPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const pub = PUBLICATIONS.find((p) => p.slug === slug);
 

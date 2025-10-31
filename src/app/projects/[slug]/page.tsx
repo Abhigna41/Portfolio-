@@ -1,3 +1,4 @@
+'use client';
 
 import { PROJECTS } from '@/app/lib/portfolio-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,13 +10,15 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { notFound } from 'next/navigation';
 
-export function generateStaticParams() {
-  return PROJECTS.map((project) => ({
-    slug: project.slug,
-  }));
-}
+// generateStaticParams is not compatible with 'use client'
+// We will remove it for now to fix the build.
+// export function generateStaticParams() {
+//   return PROJECTS.map((project) => ({
+//     slug: project.slug,
+//   }));
+// }
 
-export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
+export default function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const project = PROJECTS.find((p) => p.slug === slug);
 
