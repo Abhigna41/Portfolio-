@@ -12,7 +12,7 @@ import { CONTACT_DETAILS } from '@/app/lib/portfolio-data';
 import { addDocumentNonBlocking } from '@/firebase/non-blocking-updates';
 import { collection, serverTimestamp } from 'firebase/firestore';
 import { useFirestore } from '@/firebase';
-import { Card, CardContent } from './ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -60,8 +60,10 @@ export default function ContactSection() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
           <Card>
+            <CardHeader>
+              <CardTitle className="text-3xl md:text-4xl font-bold text-center text-primary">Contact Me</CardTitle>
+            </CardHeader>
             <CardContent className="p-6 md:p-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary">Contact Me</h2>
               <div className="grid md:grid-cols-2 gap-12">
                 <div>
                   <h3 className="text-2xl font-semibold mb-4">Get in Touch</h3>
