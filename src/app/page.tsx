@@ -12,12 +12,24 @@ import Reveal from '@/components/reveal';
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <PublicationSection />
-      <ContactSection />
+      <Reveal>
+        <HeroSection />
+      </Reveal>
+      <Reveal>
+        <AboutSection />
+      </Reveal>
+      <Reveal>
+        <SkillsSection />
+      </Reveal>
+      <Reveal>
+        <ProjectsSection />
+      </Reveal>
+      <Reveal>
+        <PublicationSection />
+      </Reveal>
+      <Reveal>
+        <ContactSection />
+      </Reveal>
     </>
   );
 }
