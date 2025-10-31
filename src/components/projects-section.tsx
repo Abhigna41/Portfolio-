@@ -14,52 +14,46 @@ export default function ProjectsSection() {
     <section id="projects" className="py-16 md:py-24 bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 md:px-6">
         <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <Card className="bg-card text-card-foreground">
-            <CardHeader>
-              <CardTitle className="text-3xl md:text-4xl font-bold text-center text-primary">My Projects</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {PROJECTS.map((project, index) => {
-                  const projectImage = PlaceHolderImages.find(p => p.id === project.image);
-                  return (
-                    <Card key={project.title} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl bg-background text-foreground">
-                      {projectImage && (
-                        <div className="relative w-full aspect-[4/3]">
-                          <Image
-                            src={projectImage.imageUrl}
-                            alt={project.title}
-                            fill
-                            className="object-cover"
-                            data-ai-hint={projectImage.imageHint}
-                          />
-                        </div>
-                      )}
-                      <CardHeader>
-                        <CardTitle>{project.title}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <CardDescription>{project.description}</CardDescription>
-                        <div className="flex flex-wrap gap-2 mt-4">
-                          {project.tech.map((tech) => (
-                            <Badge key={tech} variant="secondary">{tech}</Badge>
-                          ))}
-                        </div>
-                      </CardContent>
-                      <CardFooter className="gap-4">
-                        <Button asChild>
-                          <Link href={`/projects/${project.slug}`}>
-                            <ExternalLink className="mr-2 h-4 w-4" />
-                            View Details
-                          </Link>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  )
-                })}
-              </div>
-            </CardContent>
-          </Card>
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">My Projects</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {PROJECTS.map((project, index) => {
+              const projectImage = PlaceHolderImages.find(p => p.id === project.image);
+              return (
+                <Card key={project.title} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl bg-background text-foreground">
+                  {projectImage && (
+                    <div className="relative w-full aspect-[4/3]">
+                      <Image
+                        src={projectImage.imageUrl}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={projectImage.imageHint}
+                      />
+                    </div>
+                  )}
+                  <CardHeader>
+                    <CardTitle>{project.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-grow">
+                    <CardDescription>{project.description}</CardDescription>
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {project.tech.map((tech) => (
+                        <Badge key={tech} variant="secondary">{tech}</Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                  <CardFooter className="gap-4">
+                    <Button asChild>
+                      <Link href={`/projects/${project.slug}`}>
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        View Details
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
