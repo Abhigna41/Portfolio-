@@ -13,7 +13,7 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center">
           <div className="md:col-span-1 flex justify-center">
             {aboutImage && (
-               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-lg transition-transform duration-300 hover:scale-105">
                 <Image
                   src={aboutImage.imageUrl}
                   alt="About me photo"
