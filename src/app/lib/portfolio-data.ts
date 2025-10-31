@@ -84,8 +84,8 @@ export const PUBLICATIONS = [
 ];
 
 export const SOCIAL_LINKS = [
-  { name: 'GitHub', icon: 'github', url: 'https://github.com' },
-  { name: 'LinkedIn', icon: 'linkedin', url: 'https://linkedin.com' },
+  { name: 'GitHub', icon: 'github', url: 'https://github.com/Abhigna41' },
+  { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/naga-abhigna-gunda-aa1002247/' },
   { name: 'Twitter', icon: 'twitter', url: 'https://twitter.com' },
 ];
 
