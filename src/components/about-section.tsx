@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { Card, CardContent } from './ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function AboutSection() {
@@ -14,18 +13,15 @@ export default function AboutSection() {
         <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-center">
           <div className="md:col-span-1 flex justify-center">
             {aboutImage && (
-              <Card className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-lg">
-                <CardContent className="p-0">
-                  <Image
-                    src={aboutImage.imageUrl}
-                    alt="About me photo"
-                    width={320}
-                    height={320}
-                    className="object-cover w-full h-full"
-                    data-ai-hint={aboutImage.imageHint}
-                  />
-                </CardContent>
-              </Card>
+               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-lg">
+                <Image
+                  src={aboutImage.imageUrl}
+                  alt="About me photo"
+                  fill
+                  className="object-cover"
+                  data-ai-hint={aboutImage.imageHint}
+                />
+              </div>
             )}
           </div>
           <div className="md:col-span-2 text-center md:text-left space-y-4">
