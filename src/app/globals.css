@@ -4,65 +4,65 @@
 
 @layer base {
   :root {
-    --background: 40 100% 97%; /* Cream */
-    --foreground: 175 41% 15%; /* Dark Teal */
+    --background: 26 33% 97%; /* Off-white */
+    --foreground: 0 0% 19.6%; /* Dark Grey */
  
-    --card: 40 100% 99%; /* Lighter Cream for cards */
-    --card-foreground: 175 41% 15%;
+    --card: 26 33% 92%; /* Beige for cards */
+    --card-foreground: 0 0% 19.6%;
  
-    --popover: 40 100% 99%;
-    --popover-foreground: 175 41% 15%;
+    --popover: 26 33% 92%;
+    --popover-foreground: 0 0% 19.6%;
  
-    --primary: 33 91% 70%; /* Soft Peach */
-    --primary-foreground: 33 100% 10%; /* Dark text for on-peach elements */
+    --primary: 26 20% 65%; /* Muted accent derived from beige */
+    --primary-foreground: 0 0% 100%; /* White text on primary */
  
-    --secondary: 175 31% 35%; /* Muted Teal */
-    --secondary-foreground: 40 100% 97%;
+    --secondary: 0 0% 19.6%; /* Dark Grey for secondary sections */
+    --secondary-foreground: 26 33% 97%; /* Off-white text on dark grey */
  
-    --muted: 40 50% 94%;
-    --muted-foreground: 175 20% 40%;
+    --muted: 26 33% 88%;
+    --muted-foreground: 0 0% 40%;
  
-    --accent: 40 50% 90%;
-    --accent-foreground: 33 91% 40%;
+    --accent: 26 33% 85%;
+    --accent-foreground: 0 0% 10%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 40 30% 88%;
-    --input: 40 30% 88%;
-    --ring: 33 91% 70%;
+    --border: 26 33% 88%;
+    --input: 26 33% 88%;
+    --ring: 26 20% 65%;
  
     --radius: 0.5rem;
   }
  
   .dark {
-    --background: 175 41% 15%; /* Dark Teal */
-    --foreground: 40 100% 97%; /* Cream */
+    --background: 0 0% 15%; /* Darker Grey for dark mode */
+    --foreground: 26 33% 92%; /* Beige for text */
  
-    --card: 175 41% 20%;
-    --card-foreground: 40 100% 97%;
+    --card: 0 0% 19.6%; /* Dark Grey for cards */
+    --card-foreground: 26 33% 92%;
  
-    --popover: 175 41% 12%;
-    --popover-foreground: 40 100% 97%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 26 33% 92%;
  
-    --primary: 33 91% 70%; /* Soft Peach */
-    --primary-foreground: 33 100% 10%;
+    --primary: 26 20% 65%; /* Muted accent derived from beige */
+    --primary-foreground: 0 0% 10%;
  
-    --secondary: 40 100% 97%; /* Cream for secondary elements */
-    --secondary-foreground: 175 41% 15%;
+    --secondary: 26 33% 92%; /* Beige for secondary elements */
+    --secondary-foreground: 0 0% 19.6%;
  
-    --muted: 175 41% 25%;
-    --muted-foreground: 40 20% 70%;
+    --muted: 0 0% 25%;
+    --muted-foreground: 26 33% 70%;
  
-    --accent: 175 41% 25%;
-    --accent-foreground: 40 100% 97%;
+    --accent: 0 0% 25%;
+    --accent-foreground: 26 33% 92%;
  
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 175 41% 25%;
-    --input: 175 41% 25%;
-    --ring: 33 91% 70%;
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 26 20% 65%;
   }
 }
  
