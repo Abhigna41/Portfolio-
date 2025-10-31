@@ -9,8 +9,8 @@ export function generateStaticParams() {
   }));
 }
 
-export default async function PublicationDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default async function PublicationDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
   const pub = PUBLICATIONS.find((p) => p.slug === slug);
 
   if (!pub) {
