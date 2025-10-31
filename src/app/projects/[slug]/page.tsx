@@ -7,6 +7,7 @@ import { ArrowLeft, ExternalLink, GanttChartSquare, Target, Goal, Zap, TrendingU
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { notFound } from 'next/navigation';
 
 export function generateStaticParams() {
   return PROJECTS.map((project) => ({
@@ -17,21 +18,12 @@ export function generateStaticParams() {
 export default async function ProjectDetailPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const project = PROJECTS.find((p) => p.slug === slug);
-  const projectImage = PlaceHolderImages.find(p => p.id === project?.image);
 
   if (!project) {
-    return (
-      <div className="container mx-auto px-4 md:px-6 py-16 md:py-24 text-center">
-        <h2 className="text-2xl font-bold text-destructive">Project not found</h2>
-        <Button asChild className="mt-8">
-          <Link href="/#projects">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Projects
-          </Link>
-        </Button>
-      </div>
-    );
+    notFound();
   }
+
+  const projectImage = PlaceHolderImages.find(p => p.id === project.image);
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-16 md:py-24">
