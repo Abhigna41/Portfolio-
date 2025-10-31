@@ -1,3 +1,4 @@
+
 import { PUBLICATIONS } from '@/app/lib/portfolio-data';
 import { notFound } from 'next/navigation';
 import PublicationDetailClientPage from './publication-detail-client-page';
@@ -8,8 +9,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function PublicationDetailPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default function PublicationDetailPage({ params: { slug } }: { params: { slug: string } }) {
   const pub = PUBLICATIONS.find((p) => p.slug === slug);
 
   if (!pub) {
