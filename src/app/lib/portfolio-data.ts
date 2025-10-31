@@ -92,6 +92,21 @@ export const PROJECTS = [
   },
 ];
 
+export const PUBLICATIONS = [
+  {
+    title: 'Decentralized Data Integrity using Blockchain for Secure Data Sharing',
+    authors: 'Naga Abhigna Gunda, et al.',
+    journal: 'International Journal of Advanced Research in Computer Science, 2023',
+    link: '#',
+  },
+  {
+    title: 'A Novel Approach to AI-Powered Threat Detection in IoT Networks',
+    authors: 'Naga Abhigna Gunda, et al.',
+    journal: 'IEEE Conference on Security and Privacy, 2024',
+    link: '#',
+  },
+];
+
 export const SOCIAL_LINKS = [
   { name: 'GitHub', icon: Github, url: 'https://github.com' },
   { name: 'LinkedIn', icon: Linkedin, url: 'https://linkedin.com' },
