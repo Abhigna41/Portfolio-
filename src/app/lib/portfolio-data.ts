@@ -53,12 +53,22 @@ export const PROJECTS = [
     tech: ['Next.js', 'Tailwind CSS', 'ShadCN UI', 'Firebase'],
     image: 'project-3',
     link: '#',
-    overview: "This personal portfolio is a custom-designed platform built from the ground up to showcase my journey as a developer. Leveraging a modern tech stack—including Next.js for server-side rendering, Tailwind CSS for a sleek and responsive design, and ShadCN UI for accessible components—the site provides a fast, interactive, and visually appealing user experience. It serves as a central hub to present my projects, technical skills, and publications, all while demonstrating my ability to create production-quality web applications. Firebase is integrated for hosting and a real-time contact form, ensuring a seamless and professional presentation.",
-    problem: 'I needed a professional and visually appealing online presence to share with recruiters and colleagues that could effectively showcase my technical skills and project experience.',
-    solution: 'I created a fully responsive website using Next.js for its performance and SEO capabilities. Styling was handled with Tailwind CSS for rapid UI development, and ShadCN UI provided a set of accessible and reusable components. Firebase is used for hosting and potential future backend features like a contact form.',
-    features: ['Responsive Design', 'Project Detail Pages', 'Skills Showcase', 'Publications Section', 'Dark/Light Mode'],
-    impact: 'The portfolio has provided me with a polished and professional platform to present my work, leading to increased visibility and positive feedback from peers and potential employers.',
-    futureenhancements: []
+    overview: "I developed a personal portfolio website to showcase my skills, projects, and publications through a clean, modern, and responsive interface. The site is built using Next.js for enhanced performance and SEO optimization. Tailwind CSS was used for rapid, consistent styling, while ShadCN UI provided a library of accessible and reusable components. The website is hosted on Firebase, which also supports future backend integrations like a contact form.",
+    problem: 'I wanted a professional and visually appealing online presence that would help me effectively present my technical expertise, projects, and accomplishments to recruiters and peers.',
+    solution: 'To address this, I designed and developed a fully responsive portfolio website using Next.js, leveraging its speed and SEO benefits. With Tailwind CSS for utility-first styling and ShadCN UI for elegant components, I achieved a sleek, user-friendly interface. Hosting on Firebase ensures scalability and seamless deployment, with scope for adding interactive backend features later.',
+    features: [
+      'Responsive design for all devices',
+      'Dedicated project detail pages',
+      'Skills and technology showcase',
+      'Publications and achievements section',
+      'Dark/Light mode toggle for better user experience'
+    ],
+    impact: 'This portfolio has become my central professional identity, providing a polished platform to share my work. It has enhanced my online visibility and attracted positive feedback from recruiters, mentors, and peers.',
+    futureenhancements: [
+      'Integration of a real-time contact form with Firebase',
+      'Addition of a blog section for technical writing',
+      'Dynamic CMS support for easier content updates'
+    ]
   }
 ];
 
