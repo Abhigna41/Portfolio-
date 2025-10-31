@@ -9,52 +9,55 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Reveal from './reveal';
 
 export default function ProjectsSection() {
   return (
     <section id="projects" className="py-16 md:py-24 bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
+        <Reveal>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">My Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PROJECTS.map((project, index) => {
               const projectImage = PlaceHolderImages.find(p => p.id === project.image);
               return (
-                <Card key={project.title} className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl bg-background text-foreground">
-                  {projectImage && (
-                    <div className="relative w-full aspect-[4/3]">
-                      <Image
-                        src={projectImage.imageUrl}
-                        alt={project.title}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={projectImage.imageHint}
-                      />
-                    </div>
-                  )}
-                  <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow">
-                    <CardDescription>{project.description}</CardDescription>
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {project.tech.map((tech) => (
-                        <Badge key={tech} variant="secondary">{tech}</Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                  <CardFooter>
-                    <Button asChild variant="link" className="p-0 h-auto">
-                      <Link href={`/projects/${project.slug}`}>
-                        View Details <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
-                  </CardFooter>
-                </Card>
+                <Reveal key={project.title} delay={index * 0.1}>
+                  <Card className="flex flex-col overflow-hidden transition-transform duration-300 hover:scale-105 hover:shadow-xl bg-background text-foreground h-full">
+                    {projectImage && (
+                      <div className="relative w-full aspect-[4/3]">
+                        <Image
+                          src={projectImage.imageUrl}
+                          alt={project.title}
+                          fill
+                          className="object-cover"
+                          data-ai-hint={projectImage.imageHint}
+                        />
+                      </div>
+                    )}
+                    <CardHeader>
+                      <CardTitle>{project.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                      <CardDescription>{project.description}</CardDescription>
+                      <div className="flex flex-wrap gap-2 mt-4">
+                        {project.tech.map((tech) => (
+                          <Badge key={tech} variant="secondary">{tech}</Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                    <CardFooter>
+                      <Button asChild variant="link" className="p-0 h-auto">
+                        <Link href={`/projects/${project.slug}`}>
+                          View Details <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </CardFooter>
+                  </Card>
+                </Reveal>
               )
             })}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

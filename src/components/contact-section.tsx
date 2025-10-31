@@ -14,6 +14,7 @@ import { addDocumentNonBlocking } from '@/firebase/non-blocking-updates';
 import { collection, serverTimestamp } from 'firebase/firestore';
 import { useFirestore } from '@/firebase';
 import Icon from './icon-map';
+import Reveal from './reveal';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -59,7 +60,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+        <Reveal>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Contact Me</h2>
           <div className="max-w-4xl mx-auto p-6 md:p-12 rounded-lg shadow-lg bg-card text-card-foreground">
             <div className="grid md:grid-cols-2 gap-12">
@@ -127,7 +128,7 @@ export default function ContactSection() {
               </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
