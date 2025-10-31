@@ -45,7 +45,7 @@ export const PROJECTS = [
     problem: 'Standard cloud storage solutions lacked the fine-grained access control and cryptographic assurance required for sharing highly sensitive industrial data. There was a high risk of data breaches and unauthorized access.',
     solution: 'We developed a solution using attribute-based encryption (ABE) that allows data owners to define complex access policies. The system was built with a Python backend using Flask, and it integrated with major cloud storage providers. It included an efficient key update mechanism to handle user revocations seamlessly.',
     features: ['Attribute-Based Encryption', 'Fine-grained Access Control', 'Efficient Key Revocation', 'Data Integrity Checks'],
-    impact: 'The solution was published in an IEEE conference and provided a provably secure method for data sharing, significantly enhancing the security posture for organizations handling sensitive information in the cloud.',
+    impact: 'The solution was published in an an IEEE conference and provided a provably secure method for data sharing, significantly enhancing the security posture for organizations handling sensitive information in the cloud.',
   },
   {
     title: 'Portfolio',
