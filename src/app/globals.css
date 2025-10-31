@@ -4,65 +4,65 @@
 
 @layer base {
   :root {
-    --background: 26 33% 97%; /* Off-white */
-    --foreground: 0 0% 19.6%; /* Dark Grey */
+    --background: 0 0% 98%; /* Almost White */
+    --foreground: 300 19% 32%; /* Pastel Purple */
  
-    --card: 26 33% 92%; /* Beige for cards */
-    --card-foreground: 0 0% 19.6%;
+    --card: 30 21% 84%; /* Beige from user */
+    --card-foreground: 300 19% 32%;
  
-    --popover: 26 33% 92%;
-    --popover-foreground: 0 0% 19.6%;
+    --popover: 30 21% 84%;
+    --popover-foreground: 300 19% 32%;
  
-    --primary: 26 20% 65%; /* Muted accent derived from beige */
+    --primary: 300 25% 55%; /* A richer purple for accents */
     --primary-foreground: 0 0% 100%; /* White text on primary */
  
-    --secondary: 0 0% 19.6%; /* Dark Grey for secondary sections */
-    --secondary-foreground: 26 33% 97%; /* Off-white text on dark grey */
+    --secondary: 30 21% 84%; /* Beige for secondary sections */
+    --secondary-foreground: 300 19% 32%; /* Pastel purple text on beige */
  
-    --muted: 26 33% 88%;
-    --muted-foreground: 0 0% 40%;
+    --muted: 30 21% 90%;
+    --muted-foreground: 300 10% 50%;
  
-    --accent: 26 33% 85%;
-    --accent-foreground: 0 0% 10%;
+    --accent: 300 25% 88%;
+    --accent-foreground: 300 19% 20%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 26 33% 88%;
-    --input: 26 33% 88%;
-    --ring: 26 20% 65%;
+    --border: 30 21% 84%;
+    --input: 30 21% 88%;
+    --ring: 300 25% 55%;
  
     --radius: 0.5rem;
   }
  
   .dark {
-    --background: 0 0% 15%; /* Darker Grey for dark mode */
-    --foreground: 26 33% 92%; /* Beige for text */
+    --background: 300 10% 20%; /* Dark Purple */
+    --foreground: 30 21% 84%; /* Beige for text */
  
-    --card: 0 0% 19.6%; /* Dark Grey for cards */
-    --card-foreground: 26 33% 92%;
+    --card: 300 10% 25%; /* Darker purple for cards */
+    --card-foreground: 30 21% 84%;
  
-    --popover: 0 0% 10%;
-    --popover-foreground: 26 33% 92%;
+    --popover: 300 10% 15%;
+    --popover-foreground: 30 21% 84%;
  
-    --primary: 26 20% 65%; /* Muted accent derived from beige */
-    --primary-foreground: 0 0% 10%;
+    --primary: 300 25% 75%; /* Lighter pastel purple for accents */
+    --primary-foreground: 300 10% 15%;
  
-    --secondary: 26 33% 92%; /* Beige for secondary elements */
-    --secondary-foreground: 0 0% 19.6%;
+    --secondary: 30 21% 84%; /* Beige for secondary elements */
+    --secondary-foreground: 300 19% 32%;
  
-    --muted: 0 0% 25%;
-    --muted-foreground: 26 33% 70%;
+    --muted: 300 10% 30%;
+    --muted-foreground: 30 21% 70%;
  
-    --accent: 0 0% 25%;
-    --accent-foreground: 26 33% 92%;
+    --accent: 300 10% 30%;
+    --accent-foreground: 30 21% 92%;
  
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 0 0% 25%;
-    --input: 0 0% 25%;
-    --ring: 26 20% 65%;
+    --border: 300 10% 30%;
+    --input: 300 10% 30%;
+    --ring: 300 25% 75%;
   }
 }
  
