@@ -42,7 +42,7 @@ export default async function PublicationDetailPage({ params }: { params: { slug
           <CardHeader>
             <CardTitle className="text-3xl font-bold">{pub.title}</CardTitle>
             <p className="text-muted-foreground pt-2">{pub.authors}</p>
-            <p className="text-sm italic text-muted-foreground">{pub.journal}</p>
+            <p className="text-sm italic text-muted-foreground">{pub.journal} (Paper ID: {pub.paperID})</p>
           </CardHeader>
           <CardContent className="space-y-8">
             <div className="space-y-4">
