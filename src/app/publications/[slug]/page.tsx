@@ -1,3 +1,4 @@
+
 import { PUBLICATIONS } from '@/app/lib/portfolio-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -10,7 +11,7 @@ export function generateStaticParams() {
   }));
 }
 
-export default function PublicationDetailPage({ params }: { params: { slug: string } }) {
+export default async function PublicationDetailPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const pub = PUBLICATIONS.find((p) => p.slug === slug);
 
