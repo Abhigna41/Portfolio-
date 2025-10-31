@@ -5,64 +5,64 @@
 @layer base {
   :root {
     --background: 0 0% 98%; /* Almost White */
-    --foreground: 300 19% 32%; /* Pastel Purple */
+    --foreground: 240 4% 16%; /* Dark Grey for Text */
  
-    --card: 30 21% 84%; /* Beige from user */
-    --card-foreground: 300 19% 32%;
+    --card: 40 33% 92%; /* Soft Beige */
+    --card-foreground: 240 4% 16%;
  
-    --popover: 30 21% 84%;
-    --popover-foreground: 300 19% 32%;
+    --popover: 40 33% 92%;
+    --popover-foreground: 240 4% 16%;
  
-    --primary: 300 25% 55%; /* A richer purple for accents */
-    --primary-foreground: 0 0% 100%; /* White text on primary */
+    --primary: 240 4% 46%; /* Muted Grey for Accents */
+    --primary-foreground: 0 0% 98%;
  
-    --secondary: 30 21% 84%; /* Beige for secondary sections */
-    --secondary-foreground: 300 19% 32%; /* Pastel purple text on beige */
+    --secondary: 40 33% 92%; /* Soft Beige for Secondary Sections */
+    --secondary-foreground: 240 4% 16%;
  
-    --muted: 30 21% 90%;
-    --muted-foreground: 300 10% 50%;
+    --muted: 240 4% 96%;
+    --muted-foreground: 240 4% 46%;
  
-    --accent: 300 25% 88%;
-    --accent-foreground: 300 19% 20%;
+    --accent: 240 4% 90%;
+    --accent-foreground: 240 4% 10%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 30 21% 84%;
-    --input: 30 21% 88%;
-    --ring: 300 25% 55%;
+    --border: 240 4% 86%;
+    --input: 240 4% 90%;
+    --ring: 240 4% 46%;
  
     --radius: 0.5rem;
   }
  
   .dark {
-    --background: 300 10% 20%; /* Dark Purple */
-    --foreground: 30 21% 84%; /* Beige for text */
+    --background: 240 4% 10%; /* Very Dark Grey */
+    --foreground: 0 0% 95%; /* Light Grey for Text */
  
-    --card: 300 10% 25%; /* Darker purple for cards */
-    --card-foreground: 30 21% 84%;
+    --card: 240 4% 15%; /* Darker Grey for Cards */
+    --card-foreground: 0 0% 95%;
  
-    --popover: 300 10% 15%;
-    --popover-foreground: 30 21% 84%;
+    --popover: 240 4% 10%;
+    --popover-foreground: 0 0% 95%;
  
-    --primary: 300 25% 75%; /* Lighter pastel purple for accents */
-    --primary-foreground: 300 10% 15%;
+    --primary: 40 25% 85%; /* Light Beige for Accent */
+    --primary-foreground: 240 4% 10%;
  
-    --secondary: 30 21% 84%; /* Beige for secondary elements */
-    --secondary-foreground: 300 19% 32%;
+    --secondary: 240 4% 15%; /* Darker Grey for Secondary Sections */
+    --secondary-foreground: 0 0% 95%;
  
-    --muted: 300 10% 30%;
-    --muted-foreground: 30 21% 70%;
+    --muted: 240 4% 20%;
+    --muted-foreground: 0 0% 80%;
  
-    --accent: 300 10% 30%;
-    --accent-foreground: 30 21% 92%;
+    --accent: 240 4% 20%;
+    --accent-foreground: 0 0% 98%;
  
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 300 10% 30%;
-    --input: 300 10% 30%;
-    --ring: 300 25% 75%;
+    --border: 240 4% 20%;
+    --input: 240 4% 20%;
+    --ring: 40 25% 85%;
   }
 }
  
