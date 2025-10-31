@@ -13,8 +13,8 @@
     --popover: 40 33% 92%;
     --popover-foreground: 240 4% 16%;
  
-    --primary: 40 52% 84%; /* Warm Beige for headings */
-    --primary-foreground: 240 4% 16%;
+    --primary: 240 4% 25%; /* Dark Grey for headings */
+    --primary-foreground: 0 0% 98%;
  
     --secondary: 0 0% 95%; /* Light Grey for Secondary Sections */
     --secondary-foreground: 240 4% 16%;
@@ -30,7 +30,7 @@
  
     --border: 240 4% 86%;
     --input: 240 4% 90%;
-    --ring: 40 52% 84%;
+    --ring: 240 4% 25%;
  
     --radius: 0.5rem;
   }
