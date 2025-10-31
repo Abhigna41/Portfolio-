@@ -1,18 +1,18 @@
 
-'use client';
-
-import { useParams } from 'next/navigation';
 import { PUBLICATIONS } from '@/app/lib/portfolio-data';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
-import { Badge } from '@/components/ui/badge';
 
-export default function PublicationDetailPage() {
-  const params = useParams();
+export async function generateStaticParams() {
+  return PUBLICATIONS.map((publication) => ({
+    slug: publication.slug,
+  }));
+}
+
+export default function PublicationDetailPage({ params }: { params: { slug: string } }) {
   const slug = params.slug;
-
   const publication = PUBLICATIONS.find((p) => p.slug === slug);
 
   if (!publication) {
