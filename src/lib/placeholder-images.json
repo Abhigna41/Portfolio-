@@ -9,19 +9,19 @@
     {
       "id": "project-1",
       "description": "Placeholder for project 1",
-      "imageUrl": "https://images.unsplash.com/photo-1700427296131-0cc4c4610fc6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZWNobm9sb2d5JTIwYWJzdHJhY3R8ZW58MHx8fHwxNzYxMzc4NzI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://res.cloudinary.com/dxifwkrow/image/upload/v1761969370/Data_Portal_1_meqsrb.png",
       "imageHint": "technology abstract"
     },
     {
       "id": "project-2",
       "description": "Placeholder for project 2",
-      "imageUrl": "https://images.unsplash.com/photo-1653387300291-bfa1eeb90e16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2RlJTIwcHJvZ3JhbW1pbmd8ZW58MHx8fHwxNzYxMzc1NzMzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://res.cloudinary.com/dxifwkrow/image/upload/v1761969352/Data_Portal_2_erj5at.png",
       "imageHint": "code programming"
     },
     {
       "id": "project-3",
       "description": "Placeholder for project 3",
-      "imageUrl": "https://images.unsplash.com/photo-1709630998946-508b7f5a8642?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkZXNpZ24lMjBjcmVhdGl2ZXxlbnwwfHx8fDE3NjE0MTUyMTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://res.cloudinary.com/dxifwkrow/image/upload/v1761969533/Portfolio_v5uhir.png",
       "imageHint": "design creative"
     }
   ]
