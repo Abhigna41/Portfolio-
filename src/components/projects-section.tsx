@@ -1,4 +1,3 @@
-
 'use client';
 
 import { PROJECTS } from '@/app/lib/portfolio-data';
@@ -36,18 +35,18 @@ export default function ProjectsSection() {
                           />
                         </div>
                       )}
-                      <CardHeader className="p-4">
-                        <CardTitle className="text-lg">{project.title}</CardTitle>
+                      <CardHeader className={index === 0 ? "p-4" : "p-3"}>
+                        <CardTitle className={index === 0 ? "text-lg" : "text-base"}>{project.title}</CardTitle>
                       </CardHeader>
-                      <CardContent className="p-4 flex-grow">
-                        <CardDescription className="text-sm">{project.description}</CardDescription>
+                      <CardContent className={`${index === 0 ? "p-4" : "p-3"} flex-grow`}>
+                        <CardDescription className={index === 0 ? "text-sm" : "text-xs"}>{project.description}</CardDescription>
                         <div className="flex flex-wrap gap-2 mt-4">
                           {project.tech.map((tech) => (
                             <Badge key={tech} variant="secondary">{tech}</Badge>
                           ))}
                         </div>
                       </CardContent>
-                      <CardFooter className="p-4 flex justify-between items-center">
+                      <CardFooter className={`${index === 0 ? "p-4" : "p-3"} flex justify-between items-center`}>
                         <Button asChild variant="link" className="p-0 h-auto text-sm">
                           <Link href={`/projects/${project.slug}`}>
                             View Details <ArrowRight className="ml-1 h-4 w-4" />
