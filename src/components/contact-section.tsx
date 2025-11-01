@@ -24,7 +24,7 @@ const formSchema = z.object({
 
 export default function ContactSection() {
   const { toast } = useToast();
-  const firestore = useFirestore(); // Correctly using the hook
+  const firestore = useFirestore();
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
