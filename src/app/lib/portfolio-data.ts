@@ -37,7 +37,7 @@ export const PROJECTS = [
   {
     title: 'Secure Data Sharing in Cloud',
     slug: 'secure-data-sharing',
-    description: 'An advanced system for secure and efficient data sharing in a multi-user cloud environment using cryptographic techniques.',
+    description: 'An advanced cryptography-based system designed to enable secure and efficient data sharing among multiple users in a cloud environmen',
     tech: ['Python', 'Cryptography', 'Flask', 'Cloud Storage'],
     image: 'project-2',
     link: '#',
