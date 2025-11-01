@@ -4,29 +4,29 @@
 /node_modules
 /.pnp
 .pnp.js
-.pnp.loader.mjs
-package-lock.json
 
-# Local environment variables
-.env
-.env*.local
+# Testing
+/coverage
 
-# Build outputs
+# Next.js
 /.next/
 /out/
+
+# Production
 /build
 
-# Vercel (and other hosting providers)
-/.vercel/
-
-# TypeScript cache
-*.tsbuildinfo
-
-# Miscellaneous
+# Misc
 .DS_Store
+*.pem
+
+# Vercel
+.vercel
+
+# Local Environment Variables
+.env*.local
+.env
+
+# Log files
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-# Genkit state
-genkit-state.json
