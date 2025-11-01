@@ -8,7 +8,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the Project entity."
+          "description": "Unique identifier for the project entity."
         },
         "title": {
           "type": "string",
@@ -50,7 +50,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the Skill entity."
+          "description": "Unique identifier for the skill entity."
         },
         "name": {
           "type": "string",
@@ -85,7 +85,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the AboutMe entity."
+          "description": "Unique identifier for the about me section. Should only be one of these."
         },
         "bio": {
           "type": "string",
@@ -107,11 +107,11 @@
       "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "ContactMessage",
       "type": "object",
-      "description": "Represents a contact message sent through the contact form.",
+      "description": "Represents a message sent through the contact form.",
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the ContactMessage entity."
+          "description": "Unique identifier for the contact message."
         },
         "name": {
           "type": "string",
@@ -126,9 +126,9 @@
           "type": "string",
           "description": "The message content."
         },
-        "timestamp": {
+        "sentAt": {
           "type": "string",
-          "description": "Timestamp of when the message was sent.",
+          "description": "Timestamp indicating when the message was sent.",
           "format": "date-time"
         }
       },
@@ -137,15 +137,14 @@
         "name",
         "email",
         "message",
-        "timestamp"
+        "sentAt"
       ]
     }
   },
   "auth": {
     "providers": [
       "password",
-      "anonymous",
-      "google.com"
+      "anonymous"
     ]
   },
   "firestore": {
@@ -157,7 +156,7 @@
           "schema": {
             "$ref": "#/backend/entities/Project"
           },
-          "description": "Stores project details. Each document represents a single project.",
+          "description": "Stores project information for the portfolio.",
           "params": [
             {
               "name": "projectId",
@@ -173,7 +172,7 @@
           "schema": {
             "$ref": "#/backend/entities/Skill"
           },
-          "description": "Stores skill information. Each document represents a single skill.",
+          "description": "Stores skill information for the portfolio.",
           "params": [
             {
               "name": "skillId",
@@ -189,7 +188,7 @@
           "schema": {
             "$ref": "#/backend/entities/AboutMe"
           },
-          "description": "Stores 'About Me' information. There should only be one document in this collection.",
+          "description": "Stores 'About Me' information. Only one document should exist in this collection.",
           "params": [
             {
               "name": "aboutMeId",
@@ -205,7 +204,7 @@
           "schema": {
             "$ref": "#/backend/entities/ContactMessage"
           },
-          "description": "Stores contact messages sent via the contact form. Publicly writable.",
+          "description": "Stores contact messages sent via the contact form.",
           "params": [
             {
               "name": "contactMessageId",
@@ -215,6 +214,6 @@
         }
       }
     ],
-    "reasoning": "The Firestore structure is designed to manage portfolio data (projects, skills, about me information) and contact messages. It prioritizes security and scalability by adhering to the principles of Authorization Independence, Structural Segregation, and Access Modeling.  The `contact_messages` collection is publicly writable, simulating a 'contact us' form submission.  Since the user is unauthenticated when creating `contact_messages`, all writes are allowed from unauthenticated users to the `contact_messages` collection. This design allows atomic operations without relying on hierarchical authorization, ensures clear security rules, and supports secure list operations. The structure intentionally avoids using custom claims (DBAC) and focuses on path-based ownership where applicable and denormalization where required.\n\n**Authorization Independence:** The design avoids hierarchical authorization dependencies. This is most relevant for collaborative data structures, which are not present in the current schema. However, if future iterations require user-owned or collaborative data, denormalization will be applied as needed, specifically copying authorization context (e.g., user roles) into subcollections to eliminate `get()` calls in security rules.\n\n**Structural Segregation:**  Each collection is designed to contain documents with similar access requirements. The `contact_messages` collection contains messages from all users, so it resides in a single top-level collection. If the requirements change to allow authenticated users to manage their own contact messages, then `/users/{userId}/contact_messages/{messageId}` would be considered. But, based on the provided request, unauthenticated submissions are allowed.\n\n**QAPs (Rules are not Filters):** The structure enables secure `list` operations. All documents in each collection have the same security requirements, allowing for simple rules that do not require filtering based on document content. Listing contact messages requires admin privileges which are not implemented in the current rules. In a real world implementation, there must be a role based authentication to display the data from the `contact_messages` collection. This is for demonstration purposes only."
+    "reasoning": "The Firestore data structure is designed to store portfolio data including projects, skills, about me information, and contact messages. The structure prioritizes simplicity and security, especially regarding authorization. All collections except contact_messages are designed for admin-only access.\n\n-   **Authorization Independence:** Since all collections except `contact_messages` are admin-managed, authorization rules are greatly simplified. `contact_messages` does not require user-based authorization.\n-   **QAPs Support:** List operations are inherently secure for `projects`, `skills`, and `about_me` since they are admin-managed and intended to be publicly accessible. Contact messages do not require list operations as they would only be viewed in the admin panel.\n-   **Structural Segregation:**  Each entity type (projects, skills, about me) resides in its own collection, ensuring homogeneous security postures. This avoids the need for complex rules based on document content.\n-   **Naming Conventions:**  Clear, semantic naming is used for all collections and fields, enhancing debuggability.\n\nThe structure avoids complex authorization logic. The `contact_messages` collection stores messages sent via the contact form."
   }
 }

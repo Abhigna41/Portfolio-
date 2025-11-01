@@ -1,107 +1,77 @@
 /**
- * @fileOverview Firestore Security Rules for the portfolio application.
+ * @fileoverview Firestore Security Rules for the portfolio application.
  *
  * Core Philosophy:
- * This ruleset provides open access to all data, except for write access which is restricted to specific roles and authenticated users. This allows for rapid prototyping and easy data exploration while still enforcing basic security principles.
+ * This ruleset enforces a strict admin-only access model for most data, with public read access. The contact_messages collection allows create operations from any authenticated user.
  *
  * Data Structure:
- * The Firestore database contains the following top-level collections:
- * - /projects/{projectId}: Stores project information.
- * - /skills/{skillId}: Stores skill information.
- * - /about_me/{aboutMeId}: Stores "About Me" information.
- * - /contact_messages/{contactMessageId}: Stores contact messages.
+ * - /projects/{projectId}: Stores project information. Admin-write, public-read.
+ * - /skills/{skillId}: Stores skill information. Admin-write, public-read.
+ * - /about_me/{aboutMeId}: Stores 'About Me' information. Admin-write, public-read.
+ * - /contact_messages/{contactMessageId}: Stores contact messages. Public-create, admin-read.
  *
  * Key Security Decisions:
- * - Public Read Access: All collections are publicly readable, allowing any user to fetch and list documents.
- * - Open Writes to contact_messages: Allows unauthenticated users to submit contact form messages.
- * - No User Listing: There are no rules to read all users.
- * - Flexible Data Shapes: The rules do not enforce strict schema validation to allow for rapid prototyping.
+ * - Admin-Only Writes: Only authenticated admins can create, update, or delete projects, skills, and about_me data.
+ * - Public Reads: All users can read (get, list) projects, skills, and about_me data.
+ * - Contact Messages: Any authenticated user can submit a contact message. Listing contact messages is not permitted via client SDK.
  */
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
 
     /**
-     * @description Allows anyone to read projects. Only authenticated users can create, update, and delete projects.
+     * @description Controls access to the projects collection.
      * @path /projects/{projectId}
-     * @allow get, list: if true;
-     * @allow create: if false;
-     * @allow update: if false;
-     * @allow delete: if false;
-     * @deny get: if false;
-     * @deny list: if false;
-     * @deny create: if true;
-     * @deny update: if true;
-     * @deny delete: if true;
-     * @principle Allows read access to all, and denies write access to all.
+     * @allow get, list: Any user can read project data.
+     * @allow create, update, delete: Only authenticated users can modify project data.
+     * @deny create, update, delete: Unauthenticated users cannot modify project data.
+     * @principle Allows any user to read, but restricts modification to authenticated users.
      */
     match /projects/{projectId} {
       allow get, list: if true;
-      allow create: if false;
-      allow update: if false;
-      allow delete: if false;
+      allow create, update, delete: if isSignedIn();
     }
 
     /**
-     * @description Allows anyone to read skills. Only authenticated users can create, update, and delete skills.
+     * @description Controls access to the skills collection.
      * @path /skills/{skillId}
-     * @allow get, list: if true;
-     * @allow create: if false;
-     * @allow update: if false;
-     * @allow delete: if false;
-     * @deny get: if false;
-     * @deny list: if false;
-     * @deny create: if true;
-     * @deny update: if true;
-     * @deny delete: if true;
-     * @principle Allows read access to all, and denies write access to all.
+     * @allow get, list: Any user can read skill data.
+     * @allow create, update, delete: Only authenticated users can modify skill data.
+     * @deny create, update, delete: Unauthenticated users cannot modify skill data.
+     * @principle Allows any user to read, but restricts modification to authenticated users.
      */
     match /skills/{skillId} {
       allow get, list: if true;
-      allow create: if false;
-      allow update: if false;
-      allow delete: if false;
+      allow create, update, delete: if isSignedIn();
     }
 
     /**
-     * @description Allows anyone to read "About Me" information. Only authenticated users can create, update, and delete "About Me" information.
+     * @description Controls access to the about_me collection.
      * @path /about_me/{aboutMeId}
-     * @allow get, list: if true;
-     * @allow create: if false;
-     * @allow update: if false;
-     * @allow delete: if false;
-     * @deny get: if false;
-     * @deny list: if false;
-     * @deny create: if true;
-     * @deny update: if true;
-     * @deny delete: if true;
-     * @principle Allows read access to all, and denies write access to all.
+     * @allow get, list: Any user can read 'About Me' data.
+     * @allow create, update, delete: Only authenticated users can modify 'About Me' data.
+     * @deny create, update, delete: Unauthenticated users cannot modify 'About Me' data.
+     * @principle Allows any user to read, but restricts modification to authenticated users.
      */
     match /about_me/{aboutMeId} {
       allow get, list: if true;
-      allow create: if false;
-      allow update: if false;
-      allow delete: if false;
+      allow create, update, delete: if isSignedIn();
     }
 
     /**
-     * @description Allows anyone to submit contact messages without authentication.
+     * @description Controls access to the contact_messages collection.
      * @path /contact_messages/{contactMessageId}
-     * @allow create: if true;
-     * @allow get, list: if false; // List requires admin authentication
-     * @allow update: if false;
-     * @allow delete: if false;
-     * @deny get: if true;
-     * @deny list: if true;
-     * @deny update: if true;
-     * @deny delete: if true;
-     * @principle Allows public write access to contact messages.
+     * @allow create: Any authenticated user can create a contact message.
+     * @deny get, list, update, delete: No user can list, get, update, or delete contact messages via client SDK.
+     * @principle Allows any authenticated user to create a message, but restricts all other operations.
      */
     match /contact_messages/{contactMessageId} {
-        allow create: if true;
-      allow get, list: if false;
-      allow update: if false;
-      allow delete: if false;
+      allow create: if isSignedIn();
+      allow get, list, update, delete: if false;
+    }
+
+    function isSignedIn() {
+        return request.auth != null;
     }
   }
 }
