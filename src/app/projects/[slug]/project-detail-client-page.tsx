@@ -41,7 +41,9 @@ export default function ProjectDetailClientPage({ project, projectImage }: Proje
             </div>
           )}
           <CardHeader>
-            <CardTitle className="text-3xl font-bold">{project.title}</CardTitle>
+            <CardTitle>
+              <h1 className="text-3xl font-bold">{project.title}</h1>
+            </CardTitle>
             <div className="flex flex-wrap gap-2 mt-2">
               {project.tech.map((tech) => (
                 <Badge key={tech} variant="secondary">{tech}</Badge>
