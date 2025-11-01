@@ -89,8 +89,7 @@ export const PUBLICATIONS = [
 export const SOCIAL_LINKS = [
   { name: 'GitHub', icon: 'github', url: 'https://github.com/Abhigna41' },
   { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/naga-abhigna-gunda-aa1002247/' },
-  { name: 'LeetCode', icon: 'leetcode', url: 'https://leetcode.com/u/abhigna_gunda/' },
-  { name: 'Twitter', icon: 'twitter', url: 'https://twitter.com' },
+  { name: 'LeetCode', icon: 'leetcode', url: 'https://leetcode.com/u/NagaAbhignaGunda/' },
 ];
 
 export const CONTACT_DETAILS = [
