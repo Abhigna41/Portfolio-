@@ -35,19 +35,19 @@ export default function ProjectsSection() {
                           />
                         </div>
                       )}
-                      <CardHeader className={index === 0 ? "p-4" : "p-3"}>
-                        <CardTitle className={index === 0 ? "text-lg" : "text-base"}>{project.title}</CardTitle>
+                      <CardHeader>
+                        <CardTitle>{project.title}</CardTitle>
                       </CardHeader>
-                      <CardContent className={`${index === 0 ? "p-4" : "p-3"} flex-grow`}>
-                        <CardDescription className={index === 0 ? "text-sm" : "text-xs"}>{project.description}</CardDescription>
+                      <CardContent className="flex-grow">
+                        <CardDescription>{project.description}</CardDescription>
                         <div className="flex flex-wrap gap-2 mt-4">
                           {project.tech.map((tech) => (
                             <Badge key={tech} variant="secondary">{tech}</Badge>
                           ))}
                         </div>
                       </CardContent>
-                      <CardFooter className={`${index === 0 ? "p-4" : "p-3"} flex justify-between items-center`}>
-                        <Button asChild variant="link" className="p-0 h-auto text-sm">
+                      <CardFooter className="flex justify-between items-center">
+                        <Button asChild variant="link" className="p-0 h-auto">
                           <Link href={`/projects/${project.slug}`}>
                             View Details <ArrowRight className="ml-1 h-4 w-4" />
                           </Link>
