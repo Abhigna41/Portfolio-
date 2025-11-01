@@ -1,6 +1,7 @@
 {
   "name": "nextn",
   "version": "0.1.0",
+  "description": "A personal portfolio to showcase professional work, skills, and projects.",
   "private": true,
   "scripts": {
     "dev": "next dev -p 9003 -H 0.0.0.0",
