@@ -61,7 +61,7 @@ export default function ContactSection() {
       <div className="container mx-auto px-4 md:px-6">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Contact Me</h2>
-          <div className="max-w-7xl mx-auto p-6 md:p-12 rounded-lg shadow-lg bg-card text-card-foreground">
+          <div className="max-w-4xl mx-auto p-6 md:p-12 rounded-lg shadow-lg bg-card text-card-foreground">
             <div className="grid md:grid-cols-2 gap-12">
               <div>
                 <h3 className="text-2xl font-semibold mb-4">Get in Touch</h3>
