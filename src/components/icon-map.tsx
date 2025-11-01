@@ -1,7 +1,7 @@
 
 'use client';
 
-import { FaHtml5, FaCss3Alt, FaPython, FaReact, FaJs, FaGitAlt } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaPython, FaReact, FaJs, FaGitAlt } from 'react-icons/fa6';
 import { SiFirebase, SiMysql, SiTypescript, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
 import { Github, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 

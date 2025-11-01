@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useForm } from 'react-hook-form';
@@ -23,7 +24,7 @@ const formSchema = z.object({
 
 export default function ContactSection() {
   const { toast } = useToast();
-  const firestore = useFirestore();
+  const firestore = useFirestore(); // Correctly using the hook
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,7 +47,7 @@ export default function ContactSection() {
     
     addDocumentNonBlocking(contactMessagesCollection, {
       ...values,
-      timestamp: serverTimestamp(),
+      sentAt: serverTimestamp(),
     });
 
     toast({
