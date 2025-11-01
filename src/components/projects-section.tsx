@@ -36,27 +36,27 @@ export default function ProjectsSection() {
                           />
                         </div>
                       )}
-                      <CardHeader>
-                        <CardTitle>{project.title}</CardTitle>
+                      <CardHeader className="p-4">
+                        <CardTitle className="text-lg">{project.title}</CardTitle>
                       </CardHeader>
-                      <CardContent className="flex-grow">
-                        <CardDescription>{project.description}</CardDescription>
+                      <CardContent className="p-4 flex-grow">
+                        <CardDescription className="text-sm">{project.description}</CardDescription>
                         <div className="flex flex-wrap gap-2 mt-4">
                           {project.tech.map((tech) => (
                             <Badge key={tech} variant="secondary">{tech}</Badge>
                           ))}
                         </div>
                       </CardContent>
-                      <CardFooter className="flex justify-between items-center">
-                        <Button asChild variant="link" className="p-0 h-auto">
+                      <CardFooter className="p-4 flex justify-between items-center">
+                        <Button asChild variant="link" className="p-0 h-auto text-sm">
                           <Link href={`/projects/${project.slug}`}>
-                            View Details <ArrowRight className="ml-2 h-4 w-4" />
+                            View Details <ArrowRight className="ml-1 h-4 w-4" />
                           </Link>
                         </Button>
                         {project.link && project.link !== '#' && (
                           <Button asChild variant="outline" size="sm">
                             <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                              Live Demo <ExternalLink className="ml-2 h-4 w-4" />
+                              Live Demo <ExternalLink className="ml-1 h-4 w-4" />
                             </Link>
                           </Button>
                         )}
