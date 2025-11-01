@@ -1,3 +1,4 @@
+
 'use client';
 
 import { PUBLICATIONS } from '@/app/lib/portfolio-data';
@@ -10,11 +11,11 @@ import { motion } from 'framer-motion';
 
 export default function PublicationSection() {
   return (
-    <section id="publications" className="pt-24 pb-12 md:pt-40 md:pb-20">
+    <section id="publications" className="pt-12 md:pt-20">
       <div className="container mx-auto px-4 md:px-6">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Publications</h2>
-          <div className="max-w-4xl mx-auto space-y-8">
+          <div className="max-w-6xl mx-auto space-y-8">
             {PUBLICATIONS.map((pub, index) => (
               <Reveal key={index} delay={index * 0.1}>
                 <motion.div whileHover={{ scale: 1.02 }}>
