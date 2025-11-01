@@ -30,7 +30,7 @@ export default function AboutSection() {
             <div className="md:col-span-2 text-center md:text-left space-y-4">
               <p className="text-lg">
               I'm a Master's in Computer Science graduate specializing in Data Science and Machine Learning. I'm passionate about building intelligent applications that solve real-world problems.
-              I focus on developing user-friendly web applications with attention to detail, scalability, and performance.         
+              I focus on developing user-friendly web applications with attention to detail, scalability, and performance.
             </p>
             </div>
           </div>
