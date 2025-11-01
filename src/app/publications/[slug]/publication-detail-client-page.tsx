@@ -25,8 +25,10 @@ export default function PublicationDetailClientPage({ pub }: PublicationDetailCl
 
         <Card>
           <CardHeader>
-            <CardTitle className="text-3xl font-bold">{pub.title}</CardTitle>
-            <p className="text-muted-foreground pt-2">{pub.authors}</p>
+            <CardTitle>
+              <h1 className="text-3xl font-bold">{pub.title}</h1>
+            </CardTitle>
+            <p className="text-muted-foreground !mt-4">{pub.authors}</p>
             <p className="text-sm italic text-muted-foreground">{pub.journal} (Paper ID: {pub.paperID})</p>
           </CardHeader>
           <CardContent className="space-y-8">
