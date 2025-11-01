@@ -65,7 +65,7 @@ Follow these instructions to get a copy of the project up and running on your lo
     ```
     Open [http://localhost:9003](http://localhost:9003) with your browser to see the result.
 
-## 部署 (Deployment)
+## Deployment
 
 This project is configured for easy deployment to **Firebase Hosting**.
 
