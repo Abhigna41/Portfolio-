@@ -57,7 +57,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 md:py-40">
+    <section id="contact" className="pt-12 pb-24 md:pt-20 md:pb-40">
       <div className="container mx-auto px-4 md:px-6">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Contact Me</h2>
