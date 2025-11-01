@@ -1,11 +1,7 @@
-import type {Metadata} from 'next';
+
+import type { Metadata } from 'next';
 import './globals.css';
-import { Toaster } from "@/components/ui/toaster";
-import { FirebaseClientProvider } from '@/firebase/client-provider';
-import FloatingSocials from '@/components/floating-socials';
-import Footer from '@/components/footer';
-import Header from '@/components/header';
-import { ThemeProvider } from '@/components/theme-provider';
+import { AppProvider } from '@/components/app-provider';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
@@ -20,24 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className="font-body antialiased bg-background text-foreground">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <FirebaseClientProvider>
-            <div className="flex flex-col min-h-screen">
-              <FloatingSocials />
-              <Header />
-              <main className="flex-grow">
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </FirebaseClientProvider>
-          <Toaster />
-        </ThemeProvider>
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );
