@@ -46,7 +46,7 @@ export default function ProjectsSection() {
                           ))}
                         </div>
                       </CardContent>
-                      <CardFooter className="flex justify-between items-center">
+                      <CardFooter className="flex justify-between items-center mt-auto">
                         <Button asChild variant="link" className="p-0 h-auto">
                           <Link href={`/projects/${project.slug}`}>
                             View Details <ArrowRight className="ml-1 h-4 w-4" />
