@@ -87,6 +87,7 @@ export const PUBLICATIONS = [
 ];
 
 export const SOCIAL_LINKS = [
+  { name: 'Mail', icon: 'mail', url: 'mailto:abhignagunda1@gmail.com' },
   { name: 'GitHub', icon: 'github', url: 'https://github.com/Abhigna41' },
   { name: 'LinkedIn', icon: 'linkedin', url: 'https://www.linkedin.com/in/naga-abhigna-gunda-aa1002247/' },
   { name: 'LeetCode', icon: 'leetcode', url: 'https://leetcode.com/u/NagaAbhignaGunda/' },
