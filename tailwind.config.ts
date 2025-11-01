@@ -1,3 +1,4 @@
+
 import type {Config} from 'tailwindcss';
 
 export default {
@@ -119,6 +120,10 @@ export default {
         'jiggle': {
           '0%, 100%': { transform: 'rotate(-8deg)' },
           '50%': { transform: 'rotate(8deg)' },
+        },
+        'subtle-pulse': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.02)' },
         }
       },
       animation: {
@@ -128,6 +133,7 @@ export default {
         'fade-in-up': 'fade-in-up 0.5s ease-out forwards',
         'gradient-x': 'gradient-x 5s ease infinite',
         'jiggle': 'jiggle 0.3s ease-in-out',
+        'subtle-pulse': 'subtle-pulse 2s infinite ease-in-out',
       },
     },
   },
