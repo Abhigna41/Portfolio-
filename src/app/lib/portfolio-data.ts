@@ -27,7 +27,7 @@ export const PROJECTS = [
     problem: 'My fathers business relied heavily on Excel sheets for maintaining records. Each entry required him to fill out numerous fields manually, even when many values were repetitive or dependent on others. While tools like Google Forms seemed like a potential solution, they lacked customization — and even with App Script, hosting was limited to local networks. This limitation made it impossible for him to access the form remotely or from other devices.',
     solution: 'To overcome these challenges, I built a custom DataPortal from scratch using Python Flask and MySQL, with a user-friendly interface powered by HTML, CSS, and JavaScript. I first extracted and structured the existing Excel data in SQL Workbench. Developed a Flask-based backend to manage routes such as Home, Download, and View. Implemented logic for auto-filling dependent fields (e.g., selecting an item automatically populates fixed details like toll numbers or rates). Added secure login authentication to ensure that only authorized users — like my father — can access or modify the data. Deployed the system online using Render for web hosting and Railway for backend and database hosting, making it fully accessible remotely.',
     features: ['Automated Data Entry', 'Secure Login', 'Real-Time Access', 'Alerting System'],
-    impact: 'The portal enabled the client to reduce operational response times by 60% and provided critical insights that led to a 15% improvement in device efficiency.',
+  
     futureenhancements: [
       'Integrate data analytics dashboards for visual insights.',
       'Enable multi-user access with different permission levels.',
@@ -47,30 +47,7 @@ export const PROJECTS = [
     features: ['Attribute-Based Encryption', 'Fine-grained Access Control', 'Efficient Key Revocation', 'Data Integrity Checks'],
     impact: 'The solution was published in an an IEEE conference and provided a provably secure method for data sharing, significantly enhancing the security posture for organizations handling sensitive information in the cloud.',
   },
-  {
-    title: 'Portfolio',
-    slug: 'portfolio-project',
-    description: 'A personal portfolio website to showcase my skills, projects, and publications in a clean and modern interface.',
-    tech: ['TypeScript','Next.js', 'Tailwind CSS', 'ShadCN UI', 'Firebase'],
-    image: 'project-3',
-    link: '#',
-    overview: "I developed a personal portfolio website to showcase my skills, projects, and publications through a clean, modern, and responsive interface. The site is built using Next.js for enhanced performance and SEO optimization. Tailwind CSS was used for rapid, consistent styling, while ShadCN UI provided a library of accessible and reusable components. The website is hosted on Firebase, which also supports future backend integrations like a contact form.",
-    problem: 'I wanted a professional and visually appealing online presence that would help me effectively present my technical expertise, projects, and accomplishments to recruiters and peers.',
-    solution: 'To address this, I designed and developed a fully responsive portfolio website using Next.js, leveraging its speed and SEO benefits. With Tailwind CSS for utility-first styling and ShadCN UI for elegant components, I achieved a sleek, user-friendly interface. Hosting on Firebase ensures scalability and seamless deployment, with scope for adding interactive backend features later.',
-    features: [
-      'Responsive design for all devices',
-      'Dedicated project detail pages',
-      'Skills and technology showcase',
-      'Publications and achievements section',
-      'Dark/Light mode toggle for better user experience'
-    ],
-    impact: 'This portfolio has become my central professional identity, providing a polished platform to share my work. It has enhanced my online visibility and attracted positive feedback from recruiters, mentors, and peers.',
-    futureenhancements: [
-      'Integration of a real-time contact form with Firebase',
-      'Addition of a blog section for technical writing',
-      'Dynamic CMS support for easier content updates'
-    ]
-  }
+  
 ];
 
 export const PUBLICATIONS = [

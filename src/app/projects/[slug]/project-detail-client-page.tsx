@@ -84,12 +84,14 @@ export default function ProjectDetailClientPage({ project, projectImage }: Proje
             )}
 
             <div className="flex gap-4 pt-4">
-              <Button asChild>
-                <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  View Live Project
-                </Link>
-              </Button>
+              {project.link && project.link !== '#' && (
+                <Button asChild>
+                  <Link href={project.link} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="mr-2 h-4 w-4" />
+                    View Live Project
+                  </Link>
+                </Button>
+              )}
             </div>
           </CardContent>
         </Card>

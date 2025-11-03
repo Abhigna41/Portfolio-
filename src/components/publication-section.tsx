@@ -6,19 +6,16 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from './ui/card'
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowRight, ExternalLink } from 'lucide-react';
-import Reveal from './reveal';
 import { motion } from 'framer-motion';
 
 export default function PublicationSection() {
   return (
     <section id="publications" className="pt-12 md:pt-20">
       <div className="container mx-auto px-4 md:px-6">
-        <Reveal>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">Publications</h2>
           <div className="max-w-6xl mx-auto space-y-8">
             {PUBLICATIONS.map((pub, index) => (
-              <Reveal key={index} delay={index * 0.1}>
-                <motion.div whileHover={{ scale: 1.02 }}>
+              <motion.div whileHover={{ scale: 1.02 }} key={index}>
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-xl">{pub.title}</CardTitle>
@@ -42,10 +39,8 @@ export default function PublicationSection() {
                     </CardFooter>
                   </Card>
                 </motion.div>
-              </Reveal>
             ))}
           </div>
-        </Reveal>
       </div>
     </section>
   );

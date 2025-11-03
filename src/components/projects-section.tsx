@@ -8,21 +8,18 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import Reveal from './reveal';
 import { motion } from 'framer-motion';
 
 export default function ProjectsSection() {
   return (
     <section id="projects" className="py-20 md:py-32 bg-secondary text-secondary-foreground">
       <div className="container mx-auto px-4 md:px-6">
-        <Reveal>
           <h2 className="text-3xl md:text-4xl font-bold text-center text-primary mb-12">My Projects</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {PROJECTS.map((project, index) => {
               const projectImage = PlaceHolderImages.find(p => p.id === project.image);
               return (
-                <Reveal key={project.title} delay={index * 0.1}>
-                  <motion.div whileHover={{ scale: 1.05 }} className="h-full">
+                  <motion.div whileHover={{ scale: 1.05 }} className="h-full" key={project.title}>
                     <Card className="group flex flex-col overflow-hidden bg-background h-full">
                       {projectImage && (
                         <div className="relative w-full aspect-[4/3]">
@@ -62,11 +59,9 @@ export default function ProjectsSection() {
                       </CardFooter>
                     </Card>
                   </motion.div>
-                </Reveal>
               )
             })}
           </div>
-        </Reveal>
       </div>
     </section>
   );
