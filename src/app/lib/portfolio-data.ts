@@ -47,6 +47,72 @@ export const PROJECTS = [
     features: ['Attribute-Based Encryption', 'Fine-grained Access Control', 'Efficient Key Revocation', 'Data Integrity Checks'],
     impact: 'The solution was published in an an IEEE conference and provided a provably secure method for data sharing, significantly enhancing the security posture for organizations handling sensitive information in the cloud.',
   },
+  {
+    title: 'IPL Data Analytics using PostgreSQL',
+    slug: 'ipl-sql-analytics',
+    description:
+      'Comprehensive SQL-based analytics project leveraging PostgreSQL to derive actionable insights from IPL (2008–2020) datasets using advanced querying, relational design, and aggregation techniques.',
+    tech: ['PostgreSQL', 'SQL', 'Data Normalization', 'Joins & Aggregations', 'Query Optimization', 'Analytical Functions'],
+    image: 'project-ipl',
+    link: '#',
+    overview:
+      'This project focused on designing and executing optimized SQL queries over the IPL dataset (2008–2020) using PostgreSQL. The analysis included team performance trends, player statistics, match outcomes, and venue-based results. The solution was structured around two relational tables — `ipl` (match metadata) and `deliveries` (ball-by-ball data) — integrated via a primary–foreign key relationship for efficient querying and aggregation.',
+    problem:
+      'The raw IPL dataset contained redundant and unstructured data, leading to inefficient queries and inconsistent analytical outputs. Extracting performance metrics such as win ratios, player dismissals, and extras conceded required a relational approach with optimized joins and aggregation strategies.',
+    solution:
+      'Implemented a normalized relational schema in PostgreSQL to improve query performance and maintain data integrity. Employed aggregate and analytical SQL functions to compute key metrics across seasons and teams. Leveraged multi-table joins, indexing, and filter optimization to enable faster execution and accurate analytical reporting.',
+    features: [
+      'Normalized relational schema with primary and foreign key constraints',
+      'Advanced query optimization through indexing and execution plan analysis',
+      'Multi-level data aggregation using GROUP BY, HAVING, and window functions',
+      'Fine-grained filtering using logical operators, pattern matching, and conditional clauses',
+      'Use of JOIN operations (INNER, LEFT, FULL OUTER) to correlate match and delivery datasets',
+      'Application of analytical functions for computing moving averages and cumulative performance metrics'
+    ],
+    tools: [
+      'PostgreSQL (Database Management System)',
+      'pgAdmin4 (Database Visualization and Query Execution)',
+      'DBeaver (SQL IDE for query profiling)',
+      'Excel/CSV for initial data inspection and transformation',
+      'ERD Tools for schema visualization and relational mapping'
+    ],
+    methods: [
+      'Data Normalization — ensured referential integrity between `ipl` and `deliveries` tables',
+      'Query Optimization — used EXPLAIN and ANALYZE plans to tune join order and filter conditions',
+      'Aggregation — applied COUNT(), SUM(), MAX(), AVG(), and HAVING clauses to generate statistical insights',
+      'Analytical Functions — implemented RANK(), ROW_NUMBER(), and PARTITION BY for ranking team and player performance',
+      'Pattern Matching — used LIKE and ILIKE operators for team name and city-based lookups',
+      'Temporal Analysis — utilized ORDER BY with DATE and SEASON columns for chronological insights',
+      'Error Handling — validated NULL, missing, and inconsistent data entries for accurate computation'
+    ],
+    functionsAndTechniques: [
+      'COUNT(), SUM(), MAX(), MIN(), AVG() — for statistical computation',
+      'GROUP BY / HAVING — for aggregation and post-aggregation filtering',
+      'CASE WHEN — for conditional logic within result sets',
+      'JOIN Operations — INNER JOIN, LEFT JOIN, FULL OUTER JOIN for multi-table integration',
+      'DISTINCT and LIKE — for duplicate removal and pattern-based filtering',
+      'ORDER BY / LIMIT — for sorting and data sampling',
+      'WINDOW FUNCTIONS — RANK(), DENSE_RANK(), ROW_NUMBER() for performance ranking'
+    ],
+    impact:
+      'Delivered a robust analytical SQL pipeline that generated actionable cricket insights from large relational datasets. Optimized data retrieval time by 45% through query restructuring and indexing. Provided a scalable SQL foundation for future integration with BI tools like Tableau or Power BI for visual analytics.',
+    optimizationHighlights: [
+      'Used composite indexing on columns frequently used in WHERE and JOIN conditions (e.g., team1, team2, match_id).',
+      'Enforced referential integrity to prevent orphan records across match and delivery datasets.',
+      'Applied query execution profiling (EXPLAIN ANALYZE) to minimize nested loop joins and improve cost efficiency.',
+      'Simplified repetitive query logic through Common Table Expressions (CTEs).',
+      'Reduced data redundancy by enforcing 3NF (Third Normal Form) in database design.'
+    ],
+    architecture: [
+      'Database: PostgreSQL 15+',
+      'Tables: `ipl` (match-level data), `deliveries` (ball-by-ball data)',
+      'Primary Key: `id` (in ipl table)',
+      'Foreign Key: `match_id` (in deliveries table)',
+      'Indexes: Created on team, player, and match reference columns for high-performance lookups',
+      'Execution Platform: pgAdmin / DBeaver IDE'
+    ]
+  }
+  
   
 ];
 
