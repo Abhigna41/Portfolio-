@@ -1,3 +1,4 @@
+
 'use client';
 
 import HeroSection from '@/components/hero-section';
@@ -6,16 +7,25 @@ import SkillsSection from '@/components/skills-section';
 import ProjectsSection from '@/components/projects-section';
 import ContactSection from '@/components/contact-section';
 import PublicationSection from '@/components/publication-section';
+import Reveal from '@/components/reveal';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <AboutSection />
-      <SkillsSection />
+      <Reveal>
+        <AboutSection />
+      </Reveal>
+      <Reveal>
+        <SkillsSection />
+      </Reveal>
       <ProjectsSection />
-      <PublicationSection />
-      <ContactSection />
+      <Reveal>
+        <PublicationSection />
+      </Reveal>
+      <Reveal>
+        <ContactSection />
+      </Reveal>
     </>
   );
 }
